@@ -1,0 +1,73 @@
+/* Empty. Add your own CSS if you like */
+.bar.bar-orange {
+  border-color: #ff7647;
+  background-color: #ff8a5e;
+  background-image: linear-gradient(0deg, #ff7647,#ff7647 50%, transparent 50%);
+  color: #fff; }
+.bar.bar-orange .title {
+  color: #fff; }
+.bar.bar-orange.bar-footer {
+  background-image: linear-gradient(180deg, #ff7647, #ff7647 50%, transparent 50%); }
+
+
+.bar.bar-brown {
+  border-color: #b28971;
+  background-color: rgba(220, 143, 118, 0.51);
+  background-image: linear-gradient(0deg, #b28971, #b28971 50%, transparent 50%);
+  color: #57211d; }
+.bar.bar-brown .title {
+  color: #57211d; }
+.bar.bar-brown.bar-footer {
+  background-image: linear-gradient(180deg, #b28971, #b28971 50%, transparent 50%); }
+
+.bar-brown .button {
+  border-color:#b28971;
+  background-color: rgba(220, 143, 118, 0.51);
+  color: #57211d; }
+.bar-brown .button:hover {
+  color: #57211d;
+  text-decoration: none; }
+.bar-brown .button.active, .bar-brown .button.activated {
+  border-color: #b28971;
+  background-color: rgba(220, 143, 118, 0.51); }
+.bar-brown .button.button-clear {
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+  color: #57211d;
+  font-size: 17px; }
+.bar-brown .button.button-icon {
+  border-color: transparent;
+  background: none; }
+
+.button.button-insurance {
+  border-color: transparent;
+  background-color: #b28971;
+  color: #fff; }
+.button.button-insurance:hover {
+  color: #57211d;
+  text-decoration: none; }
+.button.button-insurance.active, .button.button-insurance.activated {
+  border-color: rgba(178, 137, 113, 0.51);
+  background-color: #b27660; }
+.button.button-insurance.button-clear {
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+  color: #57211d; }
+.button.button-insurance.button-icon {
+  border-color: transparent;
+  background: none; }
+.button.button-insurance.button-outline {
+  border-color: rgba(178, 137, 113, 0.51);
+  background: transparent;
+  color: #57211d; }
+.button.button-insurance.button-outline.active,
+.button.button-insurance.button-outline.activated {
+  background-color: rgba(178, 137, 113, 0.51);
+  box-shadow: none;
+  color: #57211d; }
+
+.home-button{
+  width: 100%;
+ }

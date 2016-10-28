@@ -1,0 +1,24 @@
+<ion-view view-title="Record Accident">
+    <ion-content>
+    <form id="recordForm" name="recordForm" ng-submit="doRecordVehicle()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Date</span>
+          <input type="text" ng-model="record.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Location</span>
+          <input type="password" ng-model="loginData.password">
+        </label>
+        <img class="item item-input ">
+          <span class="input-label">Location</span>
+          <input type="password" ng-model="record.password">
+        </img>
+        <label class="item">
+          <button class="button button-block button-insurance"
+                  type="submit">Submit</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

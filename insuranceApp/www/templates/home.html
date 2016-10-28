@@ -1,0 +1,37 @@
+<ion-view view-title="Insurance">
+  <ion-content>
+    <div>
+      <button class="button  button-block button-outline button-insurance"><i class="ion-android-pin"></i>
+        Nearby Service Poviders
+      </button>
+    </div>
+
+    <div>
+      <div class="col col-100">
+        <div class="col col-offset-20" ng-if="!showVehicles">
+          <h3>{{message}}</h3>
+        </div>
+        <div ng-if="showVehicles">
+          <ol>
+            <li class="button home-button" ng-repeat="vehicle in Vehicles">
+              <a href="recordInfo.html" class="button button-block button-insurance "
+                      ng-click="showAddVehicle()">
+                {{vehicle.number}}
+               </A>
+            </li>
+            <br/>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!--<div>-->
+      <!--<ul>-->
+      <!--<li ng-repeat="vehicle in Vehicles">-->
+        <!--<a href="#">{{vehicle.vehicleNumber}}</a>-->
+      <!--</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+
+  </ion-content>
+</ion-view>

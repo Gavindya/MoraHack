@@ -1,0 +1,28 @@
+<ion-view view-title="Add-Vehicle">
+  <!--<ion-header-bar>-->
+    <!--<div class="buttons">-->
+      <!--<button class="button button-clear" style="color: red;" ng-click="closeLogin()">X</button>-->
+    <!--</div>-->
+  <!--</ion-header-bar>-->
+  <ion-content>
+    <form ng-submit="submitVehicle()">
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Number</span>
+          <input type="text" placeholder="Number" ng-model="myVehicle.number">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Owner</span>
+          <input type="text" placeholder="Owner" ng-model="myVehicle.owner">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Policy Number</span>
+          <input type="text" placeholder="Policy" ng-model="myVehicle.policyNumber">
+        </label>
+        <label class="item">
+          <button class="button button-block button-insurance" type="submit">Submit</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
