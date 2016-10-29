@@ -11,30 +11,30 @@
 
 
 .bar.bar-brown {
-  border-color: #b28971;
-  background-color: rgba(220, 143, 118, 0.51);
-  background-image: linear-gradient(0deg, #b28971, #b28971 50%, transparent 50%);
-  color: #57211d; }
+  border-color: #ec0d17;
+  background-color: rgba(236, 13, 23, 0.34);
+  background-image: linear-gradient(0deg, #ec0d17, #ec0d17 50%, transparent 50%);
+  color: #860d16; }
 .bar.bar-brown .title {
-  color: #57211d; }
+  color:#860d16; }
 .bar.bar-brown.bar-footer {
-  background-image: linear-gradient(180deg, #b28971, #b28971 50%, transparent 50%); }
+  background-image: linear-gradient(180deg, #ec0d17, #ec0d17 50%, transparent 50%); }
 
 .bar-brown .button {
-  border-color:#b28971;
-  background-color: rgba(220, 143, 118, 0.51);
-  color: #57211d; }
+  border-color:#ec0d17;
+  background-color: rgba(236, 13, 23, 0.34);
+  color: #860d16; }
 .bar-brown .button:hover {
-  color: #57211d;
+  color: #860d16;
   text-decoration: none; }
 .bar-brown .button.active, .bar-brown .button.activated {
-  border-color: #b28971;
-  background-color: rgba(220, 143, 118, 0.51); }
+  border-color: #ec0d17;
+  background-color: rgba(236, 13, 23, 0.34); }
 .bar-brown .button.button-clear {
   border-color: transparent;
   background: none;
   box-shadow: none;
-  color: #57211d;
+  color: #860d16;
   font-size: 17px; }
 .bar-brown .button.button-icon {
   border-color: transparent;
@@ -42,31 +42,31 @@
 
 .button.button-insurance {
   border-color: transparent;
-  background-color: #b28971;
+  background-color: #ec0d17;
   color: #fff; }
 .button.button-insurance:hover {
-  color: #57211d;
+  color: #860d16;
   text-decoration: none; }
 .button.button-insurance.active, .button.button-insurance.activated {
-  border-color: rgba(178, 137, 113, 0.51);
-  background-color: #b27660; }
+  border-color: rgba(245, 25, 41, 0.36);
+  background-color: rgba(238, 25, 40, 0.53); }
 .button.button-insurance.button-clear {
   border-color: transparent;
   background: none;
   box-shadow: none;
-  color: #57211d; }
+  color: #860d16; }
 .button.button-insurance.button-icon {
   border-color: transparent;
   background: none; }
 .button.button-insurance.button-outline {
-  border-color: rgba(178, 137, 113, 0.51);
+  border-color: rgba(236, 13, 23, 0.34);
   background: transparent;
-  color: #57211d; }
+  color: #860d16; }
 .button.button-insurance.button-outline.active,
 .button.button-insurance.button-outline.activated {
-  background-color: rgba(178, 137, 113, 0.51);
+  background-color: rgba(236, 13, 23, 0.34);
   box-shadow: none;
-  color: #57211d; }
+  color: #860d16; }
 
 .home-button{
   width: 100%;

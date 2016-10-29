@@ -4,7 +4,8 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('insurance', ['ionic', 'insurance.controllers','insurance.services'])
+angular.module('insurance', ['ionic', 'insurance.controllers',
+  'insurance.services','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -37,7 +38,7 @@ angular.module('insurance', ['ionic', 'insurance.controllers','insurance.service
     views: {
       'menuContent': {
         templateUrl: 'templates/home.html',
-        controller: 'RecordController'
+        controller: 'HomeController'
       }
     }
   })
@@ -47,17 +48,17 @@ angular.module('insurance', ['ionic', 'insurance.controllers','insurance.service
       views: {
         'menuContent': {
           templateUrl: 'templates/addvehicle.html',
-          controller: 'RecordCtrl'
+          controller: 'AddVehicleCtrl'
         }
       }
     })
 
-    .state('app.recordInfo', {
-      url: '/recordInfo',
+    .state('app.accidentInfo', {
+      url: '/accidentInfo',
       views: {
         'menuContent': {
-          templateUrl: 'templates/recordInfo.html',
-          controller: 'RecordVehicleController'
+          templateUrl: 'templates/accidentInfo.html',
+          controller: 'RecordAccidentController'
         }
       }
     })
@@ -75,6 +76,53 @@ angular.module('insurance', ['ionic', 'insurance.controllers','insurance.service
       views: {
         'menuContent': {
           templateUrl: 'templates/myprofile.html'
+        }
+      }
+    })
+
+    .state('app.serviceProviders', {
+      url: '/serviceProviders',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/serviceProviders.html',
+          controller: 'ServiceProvidersCtrl'
+        }
+      }
+    })
+    .state('app.towingA', {
+      url: '/towingA',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/towingA.html',
+          controller: 'ServiceProvidersCtrl'
+        }
+      }
+    })
+
+    .state('app.taxi', {
+      url: '/taxi',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/taxi.html',
+          controller: 'TaxiCtrl'
+        }
+      }
+    })
+    .state('app.uber', {
+      url: '/uber',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/uber.html',
+          controller: 'TaxiCtrl'
+        }
+      }
+    })
+    .state('app.pickme', {
+      url: '/pickme',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/pickme.html',
+          controller: 'TaxiCtrl'
         }
       }
     })

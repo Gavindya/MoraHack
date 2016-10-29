@@ -1,0 +1,21 @@
+<ion-view view-title="Taxi Services">
+  <ion-content>
+    <ion-list >
+      <!--ng-repeat="taxi in Taxi"-->
+      <ion-item>
+        <a class="item item-avatar" href="#/app/uber" ng-if="uber">
+            <img src="img/uber.png">
+            <h2>Uber</h2>
+            <p>Uber something</p>
+          </a>
+      </ion-item>
+      <ion-item>
+        <a class="item item-avatar" href="#/app/pickme" ng-if="pickme">
+          <img src="img/pickme.png">
+          <h2>Pick me</h2>
+          <p>Pick me something</p>
+        </a>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

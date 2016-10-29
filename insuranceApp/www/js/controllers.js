@@ -2,29 +2,19 @@ angular.module('insurance.controllers', [])
 
 .controller('AppCtrl', function($scope,$ionicModal, $timeout) {
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-  // Form data for the login modal
-
-
   $scope.loginData = {};
   $scope.record = {};
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/recordInfo.html', {
+
+  $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
   });
-  // Triggered in the login modal to close it
+
   $scope.closeLogin = function() {
     $scope.modal.hide();
   };
 
-  // Open the login modal
   $scope.login = function() {
     $scope.modal.show();
   };
@@ -38,59 +28,59 @@ angular.module('insurance.controllers', [])
     }, 1000);
   };
 })
-  .controller('RecordVehicleController', function($scope, $ionicModal, $timeout,
-              $ionicPlatform, $cordovaCamera) {
+  .controller('RecordAccidentController', function($scope, $ionicModal, $timeout,
+              $ionicPlatform) {
 
     $scope.registration = {};
 
-    $ionicModal.fromTemplateUrl('templates/recordInfo.html', {
-      scope: $scope
-    }).then(function(modal) {
-      $scope.registerform = modal;
-    });
-    // Triggered in the login modal to close it
-    $scope.closeAddVehicle = function() {
-      $scope.registerform.hide();
-    };
-    // Open the login modal
-    $scope.showAddVehicle = function() {
-      $scope.registerform.show();
-    };
+    // $ionicModal.fromTemplateUrl('templates/recordInfo.html', {
+    //   scope: $scope
+    // }).then(function(modal) {
+    //   $scope.registerform = modal;
+    // });
+    // // Triggered in the login modal to close it
+    // $scope.closeAddVehicle = function() {
+    //   $scope.registerform.hide();
+    // };
+    // // Open the login modal
+    // $scope.showAddVehicle = function() {
+    //   $scope.registerform.show();
+    // };
     // Perform the login action when the user submits the login form
     $scope.doRecordVehicle = function() {
       console.log('Doing login', $scope.loginData);
+    };
       // Simulate a login delay. Remove this and replace with your login
       // code if using a login system
-      $timeout(function() {
-        $scope.closeAddVehicle();
-      }, 1000);
+      // $timeout(function() {
+      //   $scope.closeAddVehicle();
+      // }, 1000);
 
       $ionicPlatform.ready(function () {
         var options = {
-          quality:50,
-          destinationType: Camera.DestinationType.DATA_URL,
-          sourceType : Camera.PictureSourceType.CAMERA,
-          allowEdit : true,
-          encodingType : Camera.EncodingType.JPEG,
-          targetWidth :100,
-          targetHeight:100,
-          popoverOptions : CameraPopoverOptions,
+          quality: 50,
+          // destinationType: Camera.DestinationType.DATA_URL,
+          // sourceType: Camera.PictureSourceType.CAMERA,
+          allowEdit: true,
+          // encodingType: Camera.EncodingType.JPEG,
+          targetWidth: 100,
+          targetHeight: 100,
+          // popoverOptions: CameraPopoverOptions,
           saveToPhotoAlbum: false
         };
+      })
         $scope.takePicture = function () {
-          $cordovaCamera.getPicture(options).then(function (imageData) {
-            $scope.registration.imgSrc = "data:image/jpeg;base64" + imageData;
-          },function (err) {
-            console.log(err);
-          });
-          $scope.registerform.showAddVehicle();
+
+          // $cordovaCamera.getPicture(options).then(function (imageData) {
+          //   $scope.registration.imgSrc = "data:image/jpeg;base64" + imageData;
+          // },function (err) {
+          //   console.log(err);
+          // });
+          // $scope.registerform.showAddVehicle();
           }
 
-      })
-
-    };
   })
-  .controller('RecordCtrl',['$scope','menuFactory', function($scope,menuFactory) {
+  .controller('AddVehicleCtrl',['$scope','menuFactory', function($scope,menuFactory) {
 
     $scope.myVehicle = {number:"QQ-4546", owner:"", policyNumber:""};
 
@@ -106,24 +96,7 @@ angular.module('insurance.controllers', [])
     };
   }])
 
-  .controller('RecordController', ['$scope','$ionicModal', '$timeout', 'menuFactory',function($scope,$ionicModal, $timeout, menuFactory,$ionicPlatform, $cordovaCamera) {
-    $scope.showVehicles=false;
-    $scope.message="Loading....";
-
-    //NG-RESOURCE USED
-    // $scope.Vehicles = menuFactory.getVehiclesResource().query();
-    $scope.Vehicles = [];
-
-    menuFactory.getVehiclesResource().query(
-      function (response) {
-          $scope.Vehicles=response;
-          $scope.showVehicles=true;
-        },
-          function (response) {
-          $scope.message="Error : "+response.status +" "
-                          + response.statusText;
-        }
-      );
+  .controller('HomeController', ['$scope','menuFactory',function($scope,menuFactory) {
     //HTTP USED
     // $scope.Vehicles = {};
     // menuFactory.getVehicles()
@@ -137,56 +110,116 @@ angular.module('insurance.controllers', [])
     //     }
     //   );
 
+    //NG-RESOURCE USED
+    // $scope.Vehicles = menuFactory.getVehiclesResource().query();
+    $scope.Vehicles = [];
     $scope.registration = {};
+    $scope.showVehicles=false;
+    $scope.message="Loading....";
 
-    $ionicModal.fromTemplateUrl('templates/recordInfo.html', {
-      scope: $scope
-    }).then(function(modal) {
-      $scope.registerform = modal;
-    });
-    // Triggered in the login modal to close it
-    $scope.closeAddVehicle = function() {
-      $scope.registerform.hide();
-    };
-    // Open the login modal
-    $scope.showAddVehicle = function() {
-      $scope.registerform.show();
-    };
-    // Perform the login action when the user submits the login form
-    $scope.doRecordVehicle = function() {
-      console.log('Doing login', $scope.loginData);
-      // Simulate a login delay. Remove this and replace with your login
-      // code if using a login system
-      $timeout(function() {
-        $scope.closeAddVehicle();
-      }, 1000);
-
-      $ionicPlatform.ready(function () {
-        var options = {
-          quality:50,
-          destinationType: Camera.DestinationType.DATA_URL,
-          sourceType : Camera.PictureSourceType.CAMERA,
-          allowEdit : true,
-          encodingType : Camera.EncodingType.JPEG,
-          targetWidth :100,
-          targetHeight:100,
-          popoverOptions : Camera.PopoverOptions,
-          saveToPhotoAlbum: false
-        };
-        $scope.takePicture = function () {
-          $cordovaCamera.getPicture(options).then(function (imageData) {
-            $scope.registration.imgSrc = "data:image/jpeg;base64" + imageData;
-          },function (err) {
-            console.log(err);
-          });
-          $scope.registerform.showAddVehicle();
+    menuFactory.getVehiclesResource().query(
+      function (response) {
+          $scope.Vehicles=response;
+          $scope.showVehicles=true;
+        },
+          function (response) {
+          $scope.message="Error : "+response.status +" "
+                          + response.statusText;
         }
+      );
 
-      })
-
-    };
   }])
 
+  .controller('AccidentsCtrl', ['$scope', '$stateParams', 'menuFactory', function($scope, $stateParams, menuFactory) {
+
+      $scope.Accidents = [];
+      $scope.showAccidents=false;
+      $scope.message="Loading....";
+
+      menuFactory.getAccidentsHistory().query(
+        function (response) {
+          $scope.Accidents=response;
+          $scope.showAccidents=true;
+        },
+        function (response) {
+          $scope.message="Error : "+response.status +" "
+            + response.statusText;
+        }
+      );
+
+      // $scope.baseURL=baseURL;
+      // $scope.vehicle={};
+      // $scope.dish = {};
+      // $scope.showDish = false;
+      // $scope.message="Loading ...";
+      //
+      // $scope.dish = menuFactory.getVehiclesResource().get({id:parseInt($stateParams.id,10)})
+      //   .$promise.then(
+      //     function(response){
+      //       $scope.dish = response;
+      //       $scope.showDish = true;
+      //     },
+      //     function(response) {
+      //       $scope.message = "Error: "+response.status + " " + response.statusText;
+      //     }
+      //   );
+      // $scope.dish = menuFactory.getVehiclesResource().get({id:parseInt($stateParams.id,10)})
+      //   .$promise.then(
+      //     function(response){
+      //       $scope.vehicle = response;
+      //       $scope.showDish = true;
+      //     },
+      //     function(response) {
+      //       $scope.message = "Error: "+response.status + " " + response.statusText;
+      //     }
+      //   );
+
+
+    }])
+
+  .controller('ServiceProvidersCtrl', ['$scope','menuFactory',function($scope,menuFactory) {
+
+    $scope.ServiceProviders = [];
+    $scope.showServiceProviders=false;
+    $scope.message="Loading....";
+    
+    //dummy!
+    $scope.serviceA=true;
+
+    menuFactory.getServiceProviders().query(
+      function (response) {
+        $scope.ServiceProviders=response;
+        $scope.showServiceProviders=true;
+      },
+      function (response) {
+        $scope.message="Error : "+response.status +" "
+          + response.statusText;
+      }
+    );
+
+  }])
+  .controller('TaxiCtrl', ['$scope','menuFactory',function($scope,menuFactory) {
+
+    $scope.Taxi = [];
+    $scope.showTaxi=false;
+    $scope.message="Loading....";
+
+    // have to write code to fetch taxi services customer registered with
+    $scope.uber=true;
+    $scope.pickme= true;
+
+    menuFactory.getTaxi().query(
+      function (response) {
+        $scope.Taxi=response;
+        $scope.showTaxi=true;
+      },
+      function (response) {
+        $scope.message="Error : "+response.status +" "
+          + response.statusText;
+      }
+    );
+
+  }])
   .controller('MenuController', ['$scope', 'menuFactory', function($scope, menuFactory) {
 
     $scope.tab = 1;
@@ -263,38 +296,6 @@ angular.module('insurance.controllers', [])
     };
   }])
 
-  .controller('AccidentsCtrl', ['$scope', '$stateParams', 'menuFactory','baseURL',
-    function($scope, $stateParams, menuFactory, baseURL) {
-
-    $scope.baseURL=baseURL;
-      $scope.vehicle={};
-    $scope.dish = {};
-    $scope.showDish = false;
-    $scope.message="Loading ...";
-
-    $scope.dish = menuFactory.getDishes().get({id:parseInt($stateParams.id,10)})
-      .$promise.then(
-        function(response){
-          $scope.dish = response;
-          $scope.showDish = true;
-        },
-        function(response) {
-          $scope.message = "Error: "+response.status + " " + response.statusText;
-        }
-      );
-      $scope.dish = menuFactory.getVehiclesResource().get({id:parseInt($stateParams.id,10)})
-        .$promise.then(
-          function(response){
-            $scope.vehicle = response;
-            $scope.showDish = true;
-          },
-          function(response) {
-            $scope.message = "Error: "+response.status + " " + response.statusText;
-          }
-        );
-
-
-  }])
 
   .controller('DishCommentController', ['$scope', 'menuFactory', function($scope, menuFactory) {
 

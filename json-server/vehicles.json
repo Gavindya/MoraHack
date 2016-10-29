@@ -21,5 +21,68 @@
     "owner": "aaa",
     "policyNumber": "458712"
   }
+  ],
+  "AccidentsHistory":[
+
+    {
+      "number": "JH-3569",
+      "policyNumber": "458712",
+      "date": "aaa25418",
+      "location": "jhdgjhfdhgdgjfjfgjh"
+    },
+    {
+      "number": "kk-8574",
+      "policyNumber": "hfkshlhksg",
+      "date": "okj74851",
+      "location": "jhdguuuuuuu"
+    },
+    {
+      "number": "gh-784792",
+      "policyNumber": "458712",
+      "date": "aaa2222222222",
+      "location": "jhdgvvvvvvvvv"
+    }
+    ],
+  "ServiceProviders":[
+
+    {
+      "number": "JH-3569",
+      "policyNumber": "458712",
+      "date": "aaa25418",
+      "location": "jhdgjhfdhgdgjfjfgjh"
+    },
+    {
+      "number": "kk-8574",
+      "policyNumber": "hfkshlhksg",
+      "date": "okj74851",
+      "location": "jhdguuuuuuu"
+    },
+    {
+      "number": "gh-784792",
+      "policyNumber": "458712",
+      "date": "aaa2222222222",
+      "location": "jhdgvvvvvvvvv"
+    }
+  ],
+  "TaxiService":[
+
+    {
+      "number": "JH-3569",
+      "policyNumber": "458712",
+      "date": "aaa25418",
+      "location": "jhdgjhfdhgdgjfjfgjh"
+    },
+    {
+      "number": "kk-8574",
+      "policyNumber": "hfkshlhksg",
+      "date": "okj74851",
+      "location": "jhdguuuuuuu"
+    },
+    {
+      "number": "gh-784792",
+      "policyNumber": "458712",
+      "date": "aaa2222222222",
+      "location": "jhdgvvvvvvvvv"
+    }
   ]
 }

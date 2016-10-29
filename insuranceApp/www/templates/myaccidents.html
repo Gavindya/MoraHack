@@ -1,8 +1,15 @@
 <ion-view view-title="My Accidents">
   <ion-content>
-    <ion-item ng-repeat="accident in myaccidents"
-              href="#/app/myaccidents/{{accident.id}}">
-      {{accident.title}}
-    </ion-item>
+    <ion-list ng-repeat="accident in Accidents">
+      <ion-item>  <!--href="#/app/myaccidents/{{accident.id}}">-->
+
+        {{accident.number}}
+        <br>
+        {{accident.date}}
+        <br>
+        {{accident.location}}
+
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>

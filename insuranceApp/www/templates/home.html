@@ -1,9 +1,21 @@
 <ion-view view-title="Insurance">
   <ion-content>
     <div>
-      <button class="button  button-block button-outline button-insurance"><i class="ion-android-pin"></i>
-        Nearby Service Poviders
-      </button>
+      <!--<button class="button  button-block button-outline button-insurance"><i class="ion-android-pin"></i>-->
+        <!--Nearby Service Poviders-->
+      <!--</button>-->
+      <a href="#/app/serviceProviders" class="button button-block button-outline button-insurance ">
+        <i class="ion-android-pin">  Nearby Service Poviders</i>
+      </a>
+    </div>
+
+    <div>
+      <a href="#/app/taxi" class="button button-block button-outline button-insurance ">
+        <i class="ion-android-car">  Nearby Taxi Services</i>
+      </a>
+      <!--<button class="button  button-block button-outline button-insurance"><i class="ion-android-car"></i>-->
+        <!--Nearby Taxi Services-->
+      <!--</button>-->
     </div>
 
     <div>
@@ -13,11 +25,11 @@
         </div>
         <div ng-if="showVehicles">
           <ol>
-            <li class="button home-button" ng-repeat="vehicle in Vehicles">
-              <a href="recordInfo.html" class="button button-block button-insurance "
-                      ng-click="showAddVehicle()">
+            <li ng-repeat="vehicle in Vehicles">
+              <a href="#/app/accidentInfo" class="button button-block button-insurance ">
                 {{vehicle.number}}
-               </A>
+               </a>
+              <!--<ion-item href="#/app/accidentInfo"> {{vehicle.number}}</i></ion-item>-->
             </li>
             <br/>
           </ol>
