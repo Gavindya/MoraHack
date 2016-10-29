@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3e37d2c-6b82-4d93-a577-042142a13950" name="Default" comment="">
+    <list default="true" id="b3e37d2c-6b82-4d93-a577-042142a13950" name="Default" comment="stable a bit. cleaned">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="moraHack.iws" />
@@ -406,7 +406,7 @@
       <option name="presentableId" value="Default" />
       <updated>1477654450698</updated>
       <workItem from="1477654451827" duration="50350000" />
-      <workItem from="1477747145767" duration="63000" />
+      <workItem from="1477747145767" duration="99000" />
     </task>
     <task id="LOCAL-00001" summary="record Info page created">
       <created>1477673895930</created>
@@ -429,11 +429,18 @@
       <option name="project" value="LOCAL" />
       <updated>1477747205223</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="stable a bit. cleaned">
+      <created>1477747239830</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1477747239830</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50413000" />
+    <option name="totallyTimeSpent" value="50449000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -488,10 +495,15 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="record Info page created" />
     <MESSAGE value="Nearby services and taxi services interfaces added" />
     <MESSAGE value="stable a bit" />
-    <option name="LAST_COMMIT_MESSAGE" value="stable a bit" />
+    <MESSAGE value="stable a bit. cleaned" />
+    <option name="LAST_COMMIT_MESSAGE" value="stable a bit. cleaned" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
