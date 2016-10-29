@@ -48,8 +48,8 @@
   color: #860d16;
   text-decoration: none; }
 .button.button-insurance.active, .button.button-insurance.activated {
-  border-color: rgba(245, 25, 41, 0.36);
-  background-color: rgba(238, 25, 40, 0.53); }
+  border-color: rgba(178, 137, 113, 0.51);
+  background-color: #b27660; }
 .button.button-insurance.button-clear {
   border-color: transparent;
   background: none;
@@ -66,8 +66,21 @@
 .button.button-insurance.button-outline.activated {
   background-color: rgba(236, 13, 23, 0.34);
   box-shadow: none;
-  color: #860d16; }
+  color: #a50d16; }
 
 .home-button{
   width: 100%;
  }
+
+.imageDiv{
+  margin: 0px;
+  line-height: 250px;
+  background-color: rgb(232,235,239);
+  text-align: center;
+}
+.blankImage{
+
+  font-size: 64px;
+  color: rgb(136,136,136);
+  vertical-align: middle;
+}

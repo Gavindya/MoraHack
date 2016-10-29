@@ -28,8 +28,7 @@ angular.module('insurance.controllers', [])
     }, 1000);
   };
 })
-  .controller('RecordAccidentController', function($scope, $ionicModal, $timeout,
-              $ionicPlatform) {
+  .controller('RecordAccidentController', function($scope, $ionicModal, $timeout, $ionicPlatform) {
 
     $scope.registration = {};
 
@@ -38,15 +37,19 @@ angular.module('insurance.controllers', [])
     // }).then(function(modal) {
     //   $scope.registerform = modal;
     // });
+
     // // Triggered in the login modal to close it
     // $scope.closeAddVehicle = function() {
     //   $scope.registerform.hide();
     // };
+
     // // Open the login modal
     // $scope.showAddVehicle = function() {
     //   $scope.registerform.show();
     // };
+
     // Perform the login action when the user submits the login form
+
     $scope.doRecordVehicle = function() {
       console.log('Doing login', $scope.loginData);
     };
@@ -82,7 +85,7 @@ angular.module('insurance.controllers', [])
   })
   .controller('AddVehicleCtrl',['$scope','menuFactory', function($scope,menuFactory) {
 
-    $scope.myVehicle = {number:"QQ-4546", owner:"", policyNumber:""};
+    $scope.myVehicle = {number:"QQ-4546", owner:"", policyNumber:"",insuranceCompany:"",policyExpireDate:""};
 
     $scope.submitVehicle = function () {
       console.log($scope.myVehicle);
@@ -92,7 +95,7 @@ angular.module('insurance.controllers', [])
 
       $scope.form.$setPristine();
 
-      $scope.myVehicle = {number:"QQ-4546", owner:"", policyNumber:""};
+      $scope.myVehicle = {number:"QQ-4546", owner:"", policyNumber:"",insuranceCompany:"",policyExpireDate:""};
     };
   }])
 
@@ -182,7 +185,7 @@ angular.module('insurance.controllers', [])
     $scope.ServiceProviders = [];
     $scope.showServiceProviders=false;
     $scope.message="Loading....";
-    
+
     //dummy!
     $scope.serviceA=true;
 

@@ -1,22 +1,5 @@
 <ion-view view-title="Insurance">
   <ion-content>
-    <div>
-      <!--<button class="button  button-block button-outline button-insurance"><i class="ion-android-pin"></i>-->
-        <!--Nearby Service Poviders-->
-      <!--</button>-->
-      <a href="#/app/serviceProviders" class="button button-block button-outline button-insurance ">
-        <i class="ion-android-pin">  Nearby Service Poviders</i>
-      </a>
-    </div>
-
-    <div>
-      <a href="#/app/taxi" class="button button-block button-outline button-insurance ">
-        <i class="ion-android-car">  Nearby Taxi Services</i>
-      </a>
-      <!--<button class="button  button-block button-outline button-insurance"><i class="ion-android-car"></i>-->
-        <!--Nearby Taxi Services-->
-      <!--</button>-->
-    </div>
 
     <div>
       <div class="col col-100">
@@ -26,7 +9,7 @@
         <div ng-if="showVehicles">
           <ol>
             <li ng-repeat="vehicle in Vehicles">
-              <a href="#/app/accidentInfo" class="button button-block button-insurance ">
+              <a href="#/app/vehicle" class="button button-block button-insurance ">
                 {{vehicle.number}}
                </a>
               <!--<ion-item href="#/app/accidentInfo"> {{vehicle.number}}</i></ion-item>-->

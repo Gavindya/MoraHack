@@ -1,5 +1,17 @@
 <ion-view view-title="MyProfile">
   <ion-content>
-    <h1>My Profile</h1>
+    <div class="list" ng-repeat="vehicle in Vehicles">
+
+      <a class="item item-thumbnail-left" href="#app/addvehicle">
+        <img src="img/car.png">
+        <h2>{{vehicle.number}}</h2>
+        <p>{{vehicle.owner}}</p>
+        <p>{{vehicle.insuranceCompany}}</p>
+        <p>{{vehicle.policyNumber}}</p>
+        <p>{{vehicle.policyExpireDate}}</p>
+      </a>
+
+    </div>
+
   </ion-content>
 </ion-view>

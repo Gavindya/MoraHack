@@ -42,6 +42,15 @@ angular.module('insurance', ['ionic', 'insurance.controllers',
       }
     }
   })
+    .state('app.vehicle', {
+      url: '/vehicle',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/vehicle.html',
+          controller: 'HomeController'
+        }
+      }
+    })
 
   .state('app.addvehicle', {
       url: '/addvehicle',
@@ -75,7 +84,8 @@ angular.module('insurance', ['ionic', 'insurance.controllers',
       url: '/myprofile',
       views: {
         'menuContent': {
-          templateUrl: 'templates/myprofile.html'
+          templateUrl: 'templates/myprofile.html',
+          controller:'HomeController'
         }
       }
     })

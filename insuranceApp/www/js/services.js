@@ -17,9 +17,7 @@ angular.module('insurance.services',['ngResource'])
 
       //USING NG-RESOURCE INJECTOR-------------
     this.getVehiclesResource = function(){
-
       return $resource(baseURL+"Vehicles/:id",null,  {'update':{method:'PUT' }});
-
     };
     this.getAccidentsHistory = function () {
       return $resource(baseURL+"AccidentsHistory",null ,{'update':{method:'PUT'}});
