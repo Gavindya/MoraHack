@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3e37d2c-6b82-4d93-a577-042142a13950" name="Default" comment="Nearby services and taxi services interfaces added">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/insuranceApp/www/templates/vehicle.html" />
+    <list default="true" id="b3e37d2c-6b82-4d93-a577-042142a13950" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/config.xml" afterPath="$PROJECT_DIR$/insuranceApp/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/css/style.css" afterPath="$PROJECT_DIR$/insuranceApp/www/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/js/app.js" afterPath="$PROJECT_DIR$/insuranceApp/www/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/js/controllers.js" afterPath="$PROJECT_DIR$/insuranceApp/www/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/js/services.js" afterPath="$PROJECT_DIR$/insuranceApp/www/js/services.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/accidentInfo.html" afterPath="$PROJECT_DIR$/insuranceApp/www/templates/accidentInfo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/addvehicle.html" afterPath="$PROJECT_DIR$/insuranceApp/www/templates/addvehicle.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/home.html" afterPath="$PROJECT_DIR$/insuranceApp/www/templates/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/myprofile.html" afterPath="$PROJECT_DIR$/insuranceApp/www/templates/myprofile.html" />
     </list>
     <ignored path="moraHack.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -416,7 +406,7 @@
       <option name="presentableId" value="Default" />
       <updated>1477654450698</updated>
       <workItem from="1477654451827" duration="50350000" />
-      <workItem from="1477747145767" duration="9000" />
+      <workItem from="1477747145767" duration="63000" />
     </task>
     <task id="LOCAL-00001" summary="record Info page created">
       <created>1477673895930</created>
@@ -432,11 +422,18 @@
       <option name="project" value="LOCAL" />
       <updated>1477719755843</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="stable a bit">
+      <created>1477747205223</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1477747205223</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50359000" />
+    <option name="totallyTimeSpent" value="50413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -493,7 +490,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="record Info page created" />
     <MESSAGE value="Nearby services and taxi services interfaces added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nearby services and taxi services interfaces added" />
+    <MESSAGE value="stable a bit" />
+    <option name="LAST_COMMIT_MESSAGE" value="stable a bit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -696,6 +694,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -710,6 +709,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="64" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="64" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -775,6 +775,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1071">
           <caret line="63" column="51" selection-start-line="63" selection-start-column="51" selection-end-line="63" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
