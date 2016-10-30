@@ -27,7 +27,7 @@
             }
           }
         };
-      };
+        };
 
       return {
         /*
@@ -93,7 +93,7 @@
             });
 
           return deferred.promise;
-        },
+            },
 
         /*
          * Add a quick action handler. Used for static quick actions
@@ -115,7 +115,7 @@
             });
 
           return deferred.promise;
-        },
+            },
 
         /*
          * Enable link preview popup when force touch is appled to link elements
@@ -134,7 +134,7 @@
             });
 
           return deferred.promise;
-        },
+            },
 
         /*
          * Add a hanlder function for force touch events,
@@ -363,8 +363,8 @@
 
           onRateDialogShow: function (cb) {
             AppRate.preferences.callbacks.onRateDialogShow = cb.bind(this);
-          }
-        };
+        }
+      };
       }];
     }]);
 
@@ -1296,7 +1296,7 @@
             }, function (err) {
               q.reject(err);
             });
-          }
+        }
 
           return q.promise;
         }
@@ -1388,10 +1388,10 @@
           for (var key in options) {
             if (defaultOptionKeys.indexOf(key) === -1) {
               calOptions[key] = options[key];
-            } else {
+          } else {
               defaultOptions[key] = options[key];
-            }
           }
+        }
 
           $window.plugins.calendar.createEventWithOptions(
             defaultOptions.title,
@@ -1613,8 +1613,8 @@
 
           if (!navigator.camera) {
             q.resolve(null);
-            return q.promise;
-          }
+          return q.promise;
+        }
 
           navigator.camera.getPicture(function (imageData) {
             q.resolve(imageData);
@@ -1652,7 +1652,7 @@
 
           if (!navigator.device.capture) {
             q.resolve(null);
-            return q.promise;
+          return q.promise;
           }
 
           navigator.device.capture.captureAudio(function (audioData) {
@@ -1668,7 +1668,7 @@
 
           if (!navigator.device.capture) {
             q.resolve(null);
-            return q.promise;
+          return q.promise;
           }
 
           navigator.device.capture.captureImage(function (imageData) {
@@ -1684,8 +1684,8 @@
 
           if (!navigator.device.capture) {
             q.resolve(null);
-            return q.promise;
-          }
+          return q.promise;
+        }
 
           navigator.device.capture.captureVideo(function (videoData) {
             q.resolve(videoData);
@@ -1787,16 +1787,16 @@
                         respData[field] = String(response.expiry_year).substr( // jshint ignore:line
                             2, 2
                           ) || '';
-                      } else {
+                  } else {
                         respData[field] = response[field] || '';
-                      }
-                    }
+                  }
+                }
                     deferred.resolve(respData);
                   }
                 },
                 function () {
                   deferred.reject(null);
-                }
+            }
               );
               return deferred.promise;
             }
@@ -1819,9 +1819,9 @@
           $window.cordova.plugins.clipboard.copy(text,
             function () {
               q.resolve();
-            }, function () {
-              q.reject();
-            });
+          }, function () {
+            q.reject();
+          });
 
           return q.promise;
         },
@@ -1885,9 +1885,9 @@
             navigator.contacts.find(fields, function (results) {
               q.resolve(results);
             }, function (err) {
-              q.reject(err);
-            });
-          }
+            q.reject(err);
+          });
+        }
           else {
             navigator.contacts.find(fields, function (results) {
               q.resolve(results);
@@ -2156,7 +2156,7 @@
             q.resolve();
           } else {
             navigator.notification.alert(message, function () {
-              q.resolve();
+            q.resolve();
             }, title, buttonName);
           }
 
@@ -2169,9 +2169,9 @@
           if (!$window.navigator.notification) {
             if ($window.confirm(message)) {
               q.resolve(1);
-            } else {
+          } else {
               q.resolve(2);
-            }
+          }
           } else {
             navigator.notification.confirm(message, function (buttonIndex) {
               q.resolve(buttonIndex);
@@ -2188,9 +2188,9 @@
             var res = $window.prompt(message, defaultText);
             if (res !== null) {
               q.resolve({input1: res, buttonIndex: 1});
-            } else {
+          } else {
               q.resolve({input1: res, buttonIndex: 2});
-            }
+          }
           } else {
             navigator.notification.prompt(message, function (result) {
               q.resolve(result);
@@ -2263,7 +2263,7 @@
             q.resolve();
           } else {
             q.reject(value);
-          }
+        }
 
           return q.promise;
         }
@@ -2390,7 +2390,7 @@
             });
             return q.promise;
           }
-        };
+      };
       }];
     }]);
 
@@ -2551,9 +2551,9 @@
                 } else {
                   q.reject({code: 13, message: 'input is not a directory'});
                 }
-              }, function (error) {
+            }, function (error) {
                 error.message = $cordovaFileError[error.code];
-                q.reject(error);
+              q.reject(error);
               });
             } catch (err) {
               err.message = $cordovaFileError[err.code];
@@ -2608,13 +2608,13 @@
               $window.resolveLocalFileSystemURL(path, function (fileSystem) {
                 fileSystem.getDirectory(dirName, options, function (result) {
                   q.resolve(result);
-                }, function (error) {
-                  error.message = $cordovaFileError[error.code];
-                  q.reject(error);
-                });
+              }, function (error) {
+                error.message = $cordovaFileError[error.code];
+                q.reject(error);
+              });
               }, function (err) {
-                err.message = $cordovaFileError[err.code];
-                q.reject(err);
+              err.message = $cordovaFileError[err.code];
+              q.reject(err);
               });
             } catch (e) {
               e.message = $cordovaFileError[e.code];
@@ -2642,13 +2642,13 @@
               $window.resolveLocalFileSystemURL(path, function (fileSystem) {
                 fileSystem.getFile(fileName, options, function (result) {
                   q.resolve(result);
-                }, function (error) {
-                  error.message = $cordovaFileError[error.code];
-                  q.reject(error);
-                });
+              }, function (error) {
+                error.message = $cordovaFileError[error.code];
+                q.reject(error);
+              });
               }, function (err) {
-                err.message = $cordovaFileError[err.code];
-                q.reject(err);
+              err.message = $cordovaFileError[err.code];
+              q.reject(err);
               });
             } catch (e) {
               e.message = $cordovaFileError[e.code];
@@ -2669,14 +2669,14 @@
                 fileSystem.getDirectory(dirName, {create: false}, function (dirEntry) {
                   dirEntry.remove(function () {
                     q.resolve({success: true, fileRemoved: dirEntry});
-                  }, function (error) {
-                    error.message = $cordovaFileError[error.code];
-                    q.reject(error);
-                  });
-                }, function (err) {
-                  err.message = $cordovaFileError[err.code];
-                  q.reject(err);
+                }, function (error) {
+                  error.message = $cordovaFileError[error.code];
+                  q.reject(error);
                 });
+              }, function (err) {
+                err.message = $cordovaFileError[err.code];
+                q.reject(err);
+              });
               }, function (er) {
                 er.message = $cordovaFileError[er.code];
                 q.reject(er);
@@ -2700,14 +2700,14 @@
                 fileSystem.getFile(fileName, {create: false}, function (fileEntry) {
                   fileEntry.remove(function () {
                     q.resolve({success: true, fileRemoved: fileEntry});
-                  }, function (error) {
-                    error.message = $cordovaFileError[error.code];
-                    q.reject(error);
-                  });
-                }, function (err) {
-                  err.message = $cordovaFileError[err.code];
-                  q.reject(err);
+                }, function (error) {
+                  error.message = $cordovaFileError[error.code];
+                  q.reject(error);
                 });
+              }, function (err) {
+                err.message = $cordovaFileError[err.code];
+                q.reject(err);
+              });
               }, function (er) {
                 er.message = $cordovaFileError[er.code];
                 q.reject(er);
@@ -2731,14 +2731,14 @@
                 fileSystem.getDirectory(dirName, {create: false}, function (dirEntry) {
                   dirEntry.removeRecursively(function () {
                     q.resolve({success: true, fileRemoved: dirEntry});
-                  }, function (error) {
-                    error.message = $cordovaFileError[error.code];
-                    q.reject(error);
-                  });
-                }, function (err) {
-                  err.message = $cordovaFileError[err.code];
-                  q.reject(err);
+                }, function (error) {
+                  error.message = $cordovaFileError[error.code];
+                  q.reject(error);
                 });
+              }, function (err) {
+                err.message = $cordovaFileError[err.code];
+                q.reject(err);
+              });
               }, function (er) {
                 er.message = $cordovaFileError[er.code];
                 q.reject(er);
@@ -2769,7 +2769,7 @@
                 fileSystem.getFile(fileName, options, function (fileEntry) {
                   fileEntry.createWriter(function (writer) {
                     if (options.append === true) {
-                      writer.seek(writer.length);
+                    writer.seek(writer.length);
                     }
 
                     if (options.truncate) {
@@ -2789,11 +2789,11 @@
                     q.promise.abort = function () {
                       writer.abort();
                     };
-                  });
+                });
                 }, function (error) {
                   error.message = $cordovaFileError[error.code];
                   q.reject(error);
-                });
+              });
               }, function (err) {
                 err.message = $cordovaFileError[err.code];
                 q.reject(err);
@@ -2832,11 +2832,11 @@
                     q.promise.abort = function () {
                       writer.abort();
                     };
-                  });
+                });
                 }, function (error) {
                   error.message = $cordovaFileError[error.code];
                   q.reject(error);
-                });
+              });
               }, function (err) {
                 err.message = $cordovaFileError[err.code];
                 q.reject(err);
@@ -2873,11 +2873,11 @@
                     };
 
                     reader.readAsText(fileData);
-                  });
+                });
                 }, function (error) {
                   error.message = $cordovaFileError[error.code];
                   q.reject(error);
-                });
+              });
               }, function (err) {
                 err.message = $cordovaFileError[err.code];
                 q.reject(err);
@@ -2912,11 +2912,11 @@
                       }
                     };
                     reader.readAsDataURL(fileData);
-                  });
+                });
                 }, function (error) {
                   error.message = $cordovaFileError[error.code];
                   q.reject(error);
-                });
+              });
               }, function (err) {
                 err.message = $cordovaFileError[err.code];
                 q.reject(err);
@@ -2951,11 +2951,11 @@
                       }
                     };
                     reader.readAsBinaryString(fileData);
-                  });
+                });
                 }, function (error) {
                   error.message = $cordovaFileError[error.code];
                   q.reject(error);
-                });
+              });
               }, function (err) {
                 err.message = $cordovaFileError[err.code];
                 q.reject(err);
@@ -2990,11 +2990,11 @@
                       }
                     };
                     reader.readAsArrayBuffer(fileData);
-                  });
+                });
                 }, function (error) {
                   error.message = $cordovaFileError[error.code];
                   q.reject(error);
-                });
+              });
               }, function (err) {
                 err.message = $cordovaFileError[err.code];
                 q.reject(err);
@@ -3024,13 +3024,13 @@
                       q.resolve(result);
                     }, function (error) {
                       q.reject(error);
-                    });
-                  }, function (err) {
-                    q.reject(err);
                   });
                 }, function (err) {
                   q.reject(err);
                 });
+                }, function (err) {
+                  q.reject(err);
+              });
               }, function (er) {
                 q.reject(er);
               });
@@ -3057,13 +3057,13 @@
                       q.resolve(result);
                     }, function (error) {
                       q.reject(error);
-                    });
+                  });
                   }, function (erro) {
                     q.reject(erro);
-                  });
+                });
                 }, function (err) {
                   q.reject(err);
-                });
+              });
               }, function (er) {
                 q.reject(er);
               });
@@ -3092,15 +3092,15 @@
                     }, function (error) {
                       error.message = $cordovaFileError[error.code];
                       q.reject(error);
-                    });
+                  });
                   }, function (erro) {
                     erro.message = $cordovaFileError[erro.code];
                     q.reject(erro);
-                  });
+                });
                 }, function (err) {
                   err.message = $cordovaFileError[err.code];
                   q.reject(err);
-                });
+              });
               }, function (er) {
                 er.message = $cordovaFileError[er.code];
                 q.reject(er);
@@ -3135,11 +3135,11 @@
                   }, function (erro) {
                     erro.message = $cordovaFileError[erro.code];
                     q.reject(erro);
-                  });
-                }, function (err) {
-                  err.message = $cordovaFileError[err.code];
-                  q.reject(err);
                 });
+              }, function (err) {
+                err.message = $cordovaFileError[err.code];
+                q.reject(err);
+              });
               }, function (er) {
                 er.message = $cordovaFileError[er.code];
                 q.reject(er);
@@ -3156,7 +3156,7 @@
 
             if ((/^\//.test(file))) {
               q.reject('directory cannot start with \/');
-            }
+          }
 
             try {
               var directory = path + file;
@@ -3277,7 +3277,7 @@
 
           if (options && options.timeout !== undefined && options.timeout !== null) {
             $timeout(function () {
-              ft.abort();
+            ft.abort();
             }, options.timeout);
             options.timeout = null;
           }
@@ -3301,10 +3301,10 @@
 
           if (options && options.timeout !== undefined && options.timeout !== null) {
             $timeout(function () {
-              ft.abort();
+            ft.abort();
             }, options.timeout);
             options.timeout = null;
-          }
+        }
 
           ft.onprogress = function (progress) {
             q.notify(progress);
@@ -3938,7 +3938,7 @@
 
           if (isNaN(parsedKey)) {
             d.reject('Parameter "key" must be an integer.');
-          }
+        }
 
           $window.analytics.addCustomDimension(parsedKey, value, function () {
             d.resolve();
@@ -4034,7 +4034,7 @@
             map = $window.plugin.google.maps.Map.getMap(options);
             map.setDiv(div);
             q.resolve(map);
-          }
+        }
           return q.promise;
         },
 
@@ -4691,8 +4691,8 @@
 
             if (requestOptions && !angular.isObject(requestOptions)) {
               q.reject('options must be an object');
-              return q.promise;
-            }
+            return q.promise;
+          }
 
             var options = angular.extend({}, defaultOptions, requestOptions);
 
@@ -4823,7 +4823,7 @@
               q.reject(err);
             } else {
               q.resolve(installed);
-            }
+        }
           });
           return q.promise;
         }
@@ -4846,7 +4846,7 @@
       var keyboardHideEvent = function () {
         $rootScope.$evalAsync(function () {
           $rootScope.$broadcast('$cordovaKeyboard:hide');
-        });
+      });
       };
 
       document.addEventListener('deviceready', function () {
@@ -4971,14 +4971,14 @@
           $window.cordova.plugins.notification.local.on('schedule', function (notification, state) {
             $timeout(function () {
               $rootScope.$broadcast('$cordovaLocalNotification:schedule', notification, state);
-            });
+          });
           });
 
           // A local notification was triggered
           $window.cordova.plugins.notification.local.on('trigger', function (notification, state) {
             $timeout(function () {
               $rootScope.$broadcast('$cordovaLocalNotification:trigger', notification, state);
-            });
+          });
           });
 
           // ----- "Update" events
@@ -4987,7 +4987,7 @@
           $window.cordova.plugins.notification.local.on('update', function (notification, state) {
             $timeout(function () {
               $rootScope.$broadcast('$cordovaLocalNotification:update', notification, state);
-            });
+          });
           });
 
           // ----- "Clear" events
@@ -4996,14 +4996,14 @@
           $window.cordova.plugins.notification.local.on('clear', function (notification, state) {
             $timeout(function () {
               $rootScope.$broadcast('$cordovaLocalNotification:clear', notification, state);
-            });
+          });
           });
 
           // All local notifications were cleared from the notification center
           $window.cordova.plugins.notification.local.on('clearall', function (state) {
             $timeout(function () {
               $rootScope.$broadcast('$cordovaLocalNotification:clearall', state);
-            });
+          });
           });
 
           // ----- "Cancel" events
@@ -5012,14 +5012,14 @@
           $window.cordova.plugins.notification.local.on('cancel', function (notification, state) {
             $timeout(function () {
               $rootScope.$broadcast('$cordovaLocalNotification:cancel', notification, state);
-            });
+          });
           });
 
           // All local notifications were cancelled
           $window.cordova.plugins.notification.local.on('cancelall', function (state) {
             $timeout(function () {
               $rootScope.$broadcast('$cordovaLocalNotification:cancelall', state);
-            });
+          });
           });
 
           // ----- Other events
@@ -5028,7 +5028,7 @@
           $window.cordova.plugins.notification.local.on('click', function (notification, state) {
             $timeout(function () {
               $rootScope.$broadcast('$cordovaLocalNotification:click', notification, state);
-            });
+          });
           });
         }
       }, false);
@@ -5463,7 +5463,7 @@
         if (angular.isDefined(mediaTimer)) {
           $interval.cancel(mediaTimer);
           mediaTimer = undefined;
-        }
+      }
       }
 
       function resetValues() {
@@ -5960,7 +5960,7 @@
         var networkState = navigator.connection.type;
         $timeout(function () {
           $rootScope.$broadcast('$cordovaNetwork:online', networkState);
-        });
+      });
       };
 
       document.addEventListener('deviceready', function () {
@@ -6075,9 +6075,9 @@
             }
 
             storeResult.then(ok, errorCallback);
-          } else {
+            } else {
             deferred.reject(new Error(this.pluginNotEnabledMessage));
-          }
+            }
 
           this.decoratePromise(promise);
           return promise;
@@ -6109,14 +6109,14 @@
               fetchResult = $window.plugins.appPreferences.fetch(key);
             }
             fetchResult.then(ok, errorCallback);
-          } else {
+            } else {
             deferred.reject(new Error(this.pluginNotEnabledMessage));
-          }
+            }
 
           this.decoratePromise(promise);
           return promise;
         },
-
+        
         /**
          * Remove the value by the given key.
          * @param key The key of the preference to retrieve.
@@ -6143,14 +6143,14 @@
               removeResult = $window.plugins.appPreferences.remove(key);
             }
             removeResult.then(ok, errorCallback);
-          } else {
+            } else {
             deferred.reject(new Error(this.pluginNotEnabledMessage));
-          }
+            }
 
           this.decoratePromise(promise);
           return promise;
         },
-
+        
         /**
          * Show the application preferences.
          * @returns Returns a promise.
@@ -6321,12 +6321,12 @@
           if (config !== undefined && config.ecb === undefined) {
             if (document.querySelector('[ng-app]') === null) {
               injector = 'document.body';
-            }
+          }
             else {
               injector = 'document.querySelector(\'[ng-app]\')';
             }
             config.ecb = 'angular.element(' + injector + ').injector().get(\'$cordovaPush\').onNotification';
-          }
+        }
 
           $window.plugins.pushNotification.register(function (token) {
             q.resolve(token);
@@ -6381,7 +6381,7 @@
           $timeout(function () {
             push.on('notification', function (notification) {
               $rootScope.$emit('$cordovaPushV5:notificationReceived', notification);
-            });
+          });
           });
         },
         onError: function () {
@@ -6398,8 +6398,8 @@
           } else {
             push.on('registration', function (data) {
               q.resolve(data.registrationId);
-            });
-          }
+          });
+        }
           return q.promise;
         },
         unregister: function () {
@@ -6527,7 +6527,7 @@
               defer.reject(error);
             } else {
               defer.resolve(res.URI);
-            }
+        }
           }, extension, quality, options.filename);
 
           return defer.promise;
@@ -6857,7 +6857,7 @@
           if (angular.isObject(options) && !angular.isString(options)) {
             if (typeof background !== 'undefined') {
               options.bgType = background;
-            }
+          }
             return $window.sqlitePlugin.openDatabase(options);
           }
 
@@ -6872,10 +6872,10 @@
           db.transaction(function (tx) {
             tx.executeSql(query, binding, function (tx, result) {
                 q.resolve(result);
-              },
-              function (transaction, error) {
-                q.reject(error);
-              });
+            },
+            function (transaction, error) {
+              q.reject(error);
+            });
           });
           return q.promise;
         },
@@ -6918,8 +6918,8 @@
               });
             },
             function (transaction, error) {
-              q.reject(error);
-            });
+            q.reject(error);
+          });
 
           return q.promise;
         },
@@ -7108,7 +7108,7 @@
             q.resolve();
           } catch (error) {
             q.reject(error && error.message);
-          }
+        }
           return q.promise;
         }
       };
@@ -7149,7 +7149,7 @@
             }, function (err) {
               defer.reject(err);
             }, authReasonText);
-          }
+        }
 
           return defer.promise;
         }
@@ -7320,8 +7320,8 @@
 
             if (!$window.plugins.videocaptureplus) {
               q.resolve(null);
-              return q.promise;
-            }
+            return q.promise;
+          }
 
             $window.plugins.videocaptureplus.captureVideo(q.resolve, q.reject,
               angular.extend({}, defaultOptions, options));

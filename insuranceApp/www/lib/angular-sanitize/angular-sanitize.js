@@ -295,7 +295,7 @@
     var obj = {}, items = str.split(','), i;
     for (i = 0; i < items.length; i++) {
       obj[lowercaseKeys ? angular.lowercase(items[i]) : items[i]] = true;
-    }
+  }
     return obj;
   }
 
@@ -346,7 +346,7 @@
     do {
       if (mXSSAttempts === 0) {
         throw $sanitizeMinErr('uinput', "Failed to sanitize html because the input is unstable");
-      }
+    }
       mXSSAttempts--;
 
       // strip custom-namespaced attributes on IE<=11
@@ -354,7 +354,7 @@
         stripCustomNsAttrs(inertBodyElement);
       }
       html = inertBodyElement.innerHTML; //trigger mXSS
-      inertBodyElement.innerHTML = html;
+    inertBodyElement.innerHTML = html;
     } while (html !== inertBodyElement.innerHTML);
 
     var node = inertBodyElement.firstChild;
@@ -372,7 +372,7 @@
       if (!(nextNode = node.firstChild)) {
         if (node.nodeType == 1) {
           handler.end(node.nodeName.toLowerCase());
-        }
+      }
         nextNode = node.nextSibling;
         if (!nextNode) {
           while (nextNode == null) {
@@ -381,16 +381,16 @@
             nextNode = node.nextSibling;
             if (node.nodeType == 1) {
               handler.end(node.nodeName.toLowerCase());
-            }
           }
         }
       }
+    }
       node = nextNode;
     }
 
     while (node = inertBodyElement.firstChild) {
       inertBodyElement.removeChild(node);
-    }
+  }
   }
 
   function attrToMap(attrs) {
@@ -398,7 +398,7 @@
     for (var i = 0, ii = attrs.length; i < ii; i++) {
       var attr = attrs[i];
       map[attr.name] = attr.value;
-    }
+  }
     return map;
   }
 
@@ -438,7 +438,7 @@
         tag = angular.lowercase(tag);
         if (!ignoreCurrentElement && blockedElements[tag]) {
           ignoreCurrentElement = tag;
-        }
+      }
         if (!ignoreCurrentElement && validElements[tag] === true) {
           out('<');
           out(tag);
@@ -494,8 +494,8 @@
           node.removeAttributeNode(attrNode);
           i--;
           l--;
-        }
       }
+    }
     }
 
     var nextNode = node.firstChild;
@@ -506,8 +506,9 @@
     nextNode = node.nextSibling;
     if (nextNode) {
       stripCustomNsAttrs(nextNode);
-    }
   }
+  }
+
 
 
 // define ngSanitize module and register $sanitize service
@@ -665,7 +666,7 @@
         // if we did not match ftp/http/www/mailto then assume mailto
         if (!match[2] && !match[4]) {
           url = (match[3] ? 'http://' : 'mailto:') + url;
-        }
+      }
         i = match.index;
         addText(raw.substr(0, i));
         addLink(url, match[0].replace(MAILTO_REGEXP, ''));
@@ -677,7 +678,7 @@
       function addText(text) {
         if (!text) {
           return;
-        }
+      }
         html.push(sanitizeText(text));
       }
 
@@ -690,10 +691,10 @@
         if (angular.isObject(attributes)) {
           for (key in attributes) {
             html.push(key + '="' + attributes[key] + '" ');
-          }
+        }
         } else {
           attributes = {};
-        }
+      }
         if (angular.isDefined(target) && !('target' in attributes)) {
           html.push('target="',
             target,

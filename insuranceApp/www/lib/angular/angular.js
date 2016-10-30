@@ -321,14 +321,14 @@
           // as on IE8 the result of querySelectorAll is an object without a hasOwnProperty function
           if (key != 'prototype' && key != 'length' && key != 'name' && (!obj.hasOwnProperty || obj.hasOwnProperty(key))) {
             iterator.call(context, obj[key], key, obj);
-          }
+        }
         }
       } else if (isArray(obj) || isArrayLike(obj)) {
         var isPrimitive = typeof obj !== 'object';
         for (key = 0, length = obj.length; key < length; key++) {
           if (isPrimitive || key in obj) {
             iterator.call(context, obj[key], key, obj);
-          }
+        }
         }
       } else if (obj.forEach && obj.forEach !== forEach) {
         obj.forEach(iterator, context, obj);
@@ -342,7 +342,7 @@
         for (key in obj) {
           if (obj.hasOwnProperty(key)) {
             iterator.call(context, obj[key], key, obj);
-          }
+        }
         }
       } else {
         // Slow path for objects which do not have a method `hasOwnProperty`
@@ -351,7 +351,7 @@
             iterator.call(context, obj[key], key, obj);
           }
         }
-      }
+    }
     }
     return obj;
   }
@@ -431,8 +431,8 @@
           }
         } else {
           dst[key] = src;
-        }
       }
+    }
     }
 
     setHashKey(dst, h);
@@ -932,15 +932,15 @@
         for (key in source) {
           if (source.hasOwnProperty(key)) {
             destination[key] = copyElement(source[key]);
-          }
+        }
         }
       } else {
         // Slowest path --- hasOwnProperty can't be called as a method
         for (key in source) {
           if (hasOwnProperty.call(source, key)) {
             destination[key] = copyElement(source[key]);
-          }
         }
+      }
       }
       setHashKey(destination, h);
       return destination;
@@ -1018,8 +1018,8 @@
 
       if (isFunction(source.cloneNode)) {
         return source.cloneNode(true);
-      }
     }
+  }
   }
 
   /**
@@ -1040,8 +1040,8 @@
       for (var key in src) {
         if (!(key.charAt(0) === '$' && key.charAt(1) === '$')) {
           dst[key] = src[key];
-        }
       }
+    }
     }
 
     return dst || src;
@@ -1110,9 +1110,9 @@
           if (!(key in keySet) &&
             key.charAt(0) !== '$' &&
             isDefined(o2[key]) && !isFunction(o2[key])) return false;
-        }
-        return true;
       }
+        return true;
+    }
     }
     return false;
   }
@@ -1136,7 +1136,7 @@
           noUnsafeEval: noUnsafeEval(),
           noInlineStyle: false
         };
-      }
+    }
     }
 
     return csp.rules;
@@ -1200,7 +1200,7 @@
       if (el = document.querySelector('[' + prefix.replace(':', '\\:') + 'jq]')) {
         name = el.getAttribute(prefix + 'jq');
         break;
-      }
+    }
     }
 
     return (jq.name_ = name);
@@ -1251,7 +1251,7 @@
     } else {
       // in IE, native methods are not functions so they cannot be bound (note: they don't need to be)
       return fn;
-    }
+  }
   }
 
 
@@ -1470,7 +1470,7 @@
       attr = ngAttrPrefixes[i] + ngAttr;
       if (isString(attr = element.getAttribute(attr))) {
         return attr;
-      }
+    }
     }
     return null;
   }
@@ -1635,7 +1635,7 @@
     if (appElement) {
       config.strictDi = getNgAttribute(appElement, "strict-di") !== null;
       bootstrap(appElement, module ? [module] : [], config);
-    }
+  }
   }
 
   /**
@@ -1762,7 +1762,7 @@
 
     if (isFunction(angular.resumeDeferredBootstrap)) {
       angular.resumeDeferredBootstrap();
-    }
+  }
   }
 
   /**
@@ -1845,7 +1845,7 @@
           events = jQuery._data(elem, "events");
           if (events && events.$destroy) {
             jQuery(elem).triggerHandler('$destroy');
-          }
+        }
         }
         originalCleanData(elems);
       };
@@ -1887,7 +1887,7 @@
   function assertNotHasOwnProperty(name, context) {
     if (name === 'hasOwnProperty') {
       throw ngMinErr('badname', "hasOwnProperty is not a valid {0} name", context);
-    }
+  }
   }
 
   /**
@@ -1909,7 +1909,7 @@
       key = keys[i];
       if (obj) {
         obj = (lastInstance = obj)[key];
-      }
+    }
     }
     if (!bindFnToScope && isFunction(obj)) {
       return bind(lastInstance, obj);
@@ -1932,9 +1932,9 @@
       if (blockNodes || nodes[i] !== node) {
         if (!blockNodes) {
           blockNodes = jqLite(slice.call(nodes, 0, i));
-        }
-        blockNodes.push(node);
       }
+        blockNodes.push(node);
+    }
     }
 
     return blockNodes || nodes;
@@ -2808,7 +2808,7 @@
   function jqLiteCleanData(nodes) {
     for (var i = 0, ii = nodes.length; i < ii; i++) {
       jqLiteRemoveData(nodes[i]);
-    }
+  }
   }
 
   function jqLiteBuildFragment(html, context) {
@@ -2896,7 +2896,7 @@
     if (!(this instanceof JQLite)) {
       if (argIsString && element.charAt(0) != '<') {
         throw jqLiteMinErr('nosel', 'Looking up elements via selectors is not supported by jqLite! See: http://docs.angularjs.org/api/angular.element');
-      }
+    }
       return new JQLite(element);
     }
 
@@ -2904,7 +2904,7 @@
       jqLiteAddNodes(this, jqLiteParseHTML(element));
     } else {
       jqLiteAddNodes(this, element);
-    }
+  }
   }
 
   function jqLiteClone(element) {
@@ -2918,8 +2918,8 @@
       var descendants = element.querySelectorAll('*');
       for (var i = 0, l = descendants.length; i < l; i++) {
         jqLiteRemoveData(descendants[i]);
-      }
     }
+  }
   }
 
   function jqLiteOff(element, type, fn, unsupported) {
@@ -2973,12 +2973,12 @@
       if (expandoStore.handle) {
         if (expandoStore.events.$destroy) {
           expandoStore.handle({}, '$destroy');
-        }
+      }
         jqLiteOff(element);
       }
       delete jqCache[expandoId];
       element.ng339 = undefined; // don't delete DOM expandos. IE and Chrome don't like it
-    }
+  }
   }
 
 
@@ -3015,10 +3015,10 @@
             return data && data[key];
           } else { // mass-setter: data({key1: val1, key2: val2})
             extend(data, key);
-          }
         }
       }
     }
+  }
   }
 
   function jqLiteHasClass(element, selector) {
@@ -3035,7 +3035,7 @@
             .replace(" " + trim(cssClass) + " ", " "))
         );
       });
-    }
+  }
   }
 
   function jqLiteAddClass(element, cssClasses) {
@@ -3072,12 +3072,12 @@
             for (var i = 0; i < length; i++) {
               root[root.length++] = elements[i];
             }
-          }
+        }
         } else {
           root[root.length++] = elements;
-        }
       }
     }
+  }
   }
 
 
@@ -3102,14 +3102,14 @@
       // element as the parent. This enables directives within a Shadow DOM or polyfilled Shadow DOM
       // to lookup parent controllers.
       element = element.parentNode || (element.nodeType === NODE_TYPE_DOCUMENT_FRAGMENT && element.host);
-    }
+  }
   }
 
   function jqLiteEmpty(element) {
     jqLiteDealoc(element, true);
     while (element.firstChild) {
       element.removeChild(element.firstChild);
-    }
+  }
   }
 
   function jqLiteRemove(element, keepData) {
@@ -3129,7 +3129,7 @@
     } else {
       // No need to unbind this handler as load is only ever called once
       jqLite(win).on('load', action);
-    }
+  }
   }
 
 //////////////////////////////////////////
@@ -3263,10 +3263,10 @@
           if (!!value) {
             element[name] = true;
             element.setAttribute(name, lowercasedName);
-          } else {
+        } else {
             element[name] = false;
             element.removeAttribute(lowercasedName);
-          }
+        }
         } else {
           return (element[name] ||
           (element.attributes.getNamedItem(name) || noop).specified)
@@ -3353,8 +3353,8 @@
             } else {
               for (key in arg1) {
                 fn(this[i], key, arg1[key]);
-              }
             }
+          }
           }
           // return self for chaining
           return this;
@@ -3423,7 +3423,7 @@
       for (var i = 0; i < eventFnsLength; i++) {
         if (!event.isImmediatePropagationStopped()) {
           handlerWrapper(element, event, eventFns[i]);
-        }
+      }
       }
     };
 
@@ -3446,7 +3446,7 @@
     // NB: No relatedTarget if the mouse left/entered the browser window
     if (!related || (related !== target && !jqLiteContains.call(target, related))) {
       handler.call(target, event);
-    }
+  }
   }
 
 //////////////////////////////////////////
@@ -3485,7 +3485,7 @@
           eventFns.specialHandlerWrapper = specialHandlerWrapper;
           if (type !== '$destroy' && !noEventListener) {
             addEventListenerFn(element, type, handle);
-          }
+        }
         }
 
         eventFns.push(fn);
@@ -3498,7 +3498,7 @@
           addHandler(type, undefined, true);
         } else {
           addHandler(type);
-        }
+      }
       }
     },
 
@@ -3662,7 +3662,7 @@
             fn.apply(element, handlerArgs);
           }
         });
-      }
+    }
     }
   }, function (fn, name) {
     /**
@@ -3680,7 +3680,7 @@
           }
         } else {
           jqLiteAddNodes(value, fn(this[i], arg1, arg2, arg3));
-        }
+      }
       }
       return isDefined(value) ? value : this;
     };
@@ -3788,7 +3788,7 @@
   var $$HashMapProvider = [function () {
     this.$get = [function () {
       return HashMap;
-    }];
+  }];
   }];
 
   /**
@@ -3898,7 +3898,7 @@
               $inject.push(name);
             });
           });
-        }
+      }
         fn.$inject = $inject;
       }
     } else if (isArray(fn)) {
@@ -4547,7 +4547,7 @@
               provider = providerInjector.get(invokeArgs[0]);
 
             provider[invokeArgs[1]].apply(provider, invokeArgs[2]);
-          }
+        }
         }
 
         try {
@@ -4603,12 +4603,12 @@
           } catch (err) {
             if (cache[serviceName] === INSTANTIATING) {
               delete cache[serviceName];
-            }
+          }
             throw err;
           } finally {
             path.shift();
-          }
         }
+      }
       }
 
 
@@ -4657,7 +4657,7 @@
         } else {
           args.unshift(null);
           return new (Function.prototype.bind.apply(fn, args))();
-        }
+      }
       }
 
 
@@ -4681,7 +4681,7 @@
           return providerCache.hasOwnProperty(name + providerSuffix) || cache.hasOwnProperty(name);
         }
       };
-    }
+  }
   }
 
   createInjector.$$annotate = annotate;
@@ -4919,7 +4919,7 @@
           }
         } else {
           $window.scrollTo(0, 0);
-        }
+      }
       }
 
       function scroll(hash) {
@@ -4951,7 +4951,7 @@
 
             jqLiteDocumentLoaded(function () {
               $rootScope.$evalAsync(scroll);
-            });
+          });
           });
       }
 
@@ -4977,8 +4977,8 @@
       var elm = element[i];
       if (elm.nodeType === ELEMENT_NODE) {
         return elm;
-      }
     }
+  }
   }
 
   function splitClasses(classes) {
@@ -5203,7 +5203,7 @@
             throw $animateMinErr('nongcls', '$animateProvider.classNameFilter(regex) prohibits accepting a regex value which matches/contains the "{0}" CSS class.', NG_ANIMATE_CLASSNAME);
 
           }
-        }
+      }
       }
       return this.$$classNameFilter;
     };
@@ -5574,7 +5574,7 @@
         });
         return function (callback) {
           passed ? callback() : waitForTick(callback);
-        };
+      };
       };
     }];
   };
@@ -5865,9 +5865,9 @@
               outstandingRequestCallbacks.pop()();
             } catch (e) {
               $log.error(e);
-            }
           }
         }
+      }
       }
     }
 
@@ -6432,25 +6432,25 @@
           },
 
 
-          /**
-           * @ngdoc method
-           * @name $cacheFactory.Cache#info
-           * @kind function
-           *
-           * @description
-           * Retrieve information regarding a particular {@link $cacheFactory.Cache Cache}.
-           *
-           * @returns {object} an object with the following properties:
-           *   <ul>
-           *     <li>**id**: the id of the cache instance</li>
-           *     <li>**size**: the number of entries kept in the cache instance</li>
-           *     <li>**...**: any additional properties from the options object when creating the
-           *       cache.</li>
-           *   </ul>
-           */
-          info: function () {
-            return extend({}, stats, {size: size});
-          }
+        /**
+         * @ngdoc method
+         * @name $cacheFactory.Cache#info
+         * @kind function
+         *
+         * @description
+         * Retrieve information regarding a particular {@link $cacheFactory.Cache Cache}.
+         *
+         * @returns {object} an object with the following properties:
+         *   <ul>
+         *     <li>**id**: the id of the cache instance</li>
+         *     <li>**size**: the number of entries kept in the cache instance</li>
+         *     <li>**...**: any additional properties from the options object when creating the
+         *       cache.</li>
+         *   </ul>
+         */
+        info: function () {
+          return extend({}, stats, {size: size});
+        }
         };
 
 
@@ -6463,13 +6463,13 @@
               staleEnd = entry;
             } else if (staleEnd == entry) {
               staleEnd = entry.n;
-            }
+          }
 
             link(entry.n, entry.p);
             link(entry, freshEnd);
             freshEnd = entry;
             freshEnd.n = null;
-          }
+        }
         }
 
 
@@ -6480,8 +6480,8 @@
           if (nextEntry != prevEntry) {
             if (nextEntry) nextEntry.p = prevEntry; //p stands for previous, 'prev' didn't minify
             if (prevEntry) prevEntry.n = nextEntry; //n stands for next, 'next' didn't minify
-          }
         }
+      }
       }
 
 
@@ -7505,7 +7505,7 @@
           throw $compileMinErr('noident',
             "Cannot bind to controller without identifier for directive '{0}'.",
             directiveName);
-        }
+      }
       }
       return bindings;
     }
@@ -7670,7 +7670,7 @@
             };
           } else {
             return fn;
-          }
+        }
         }
 
         var template = (!options.template && !options.templateUrl ? '' : options.template);
@@ -8800,7 +8800,7 @@
                     if (slots[slotName]) {
                       // Only define a transclusion function if the slot was filled
                       slots[slotName] = compilationGenerator(mightHaveMultipleTransclusionError, slots[slotName], transcludeFn);
-                    }
+                }
                   }
                 }
 
@@ -9103,8 +9103,8 @@
                 }
               } else {
                 return boundTranscludeFn(scope, cloneAttachFn, transcludeControllers, futureParentElement, scopeToChild);
-              }
-            }
+          }
+        }
           }
         }
 
@@ -9254,7 +9254,7 @@
               directive = directives[i];
               if (directive.multiElement) {
                 return true;
-              }
+          }
             }
           }
           return false;
@@ -9911,7 +9911,7 @@
       var node = jqNodes[i];
       if (node.nodeType === NODE_TYPE_COMMENT) {
         splice.call(jqNodes, i, 1);
-      }
+    }
     }
     return jqNodes;
   }
@@ -10255,7 +10255,7 @@
         });
 
         return parts.join('&');
-      };
+    };
     };
   }
 
@@ -10325,9 +10325,9 @@
             });
           } else {
             parts.push(encodeUriQuery(prefix) + '=' + encodeUriQuery(serializeValue(toSerialize)));
-          }
         }
-      };
+        }
+    };
     };
   }
 
@@ -10340,8 +10340,8 @@
         var contentType = headers('Content-Type');
         if ((contentType && (contentType.indexOf(APPLICATION_JSON) === 0)) || isJsonLike(tempData)) {
           data = fromJson(tempData);
-        }
       }
+    }
     }
 
     return data;
@@ -10364,7 +10364,7 @@
     function fillInParsed(key, val) {
       if (key) {
         parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
-      }
+    }
     }
 
     if (isString(headers)) {
@@ -10494,7 +10494,7 @@
       headers: {
         common: {
           'Accept': 'application/json, text/plain, */*'
-        },
+      },
         post: shallowCopy(CONTENT_TYPE_APPLICATION_JSON),
         put: shallowCopy(CONTENT_TYPE_APPLICATION_JSON),
         patch: shallowCopy(CONTENT_TYPE_APPLICATION_JSON)
@@ -11554,7 +11554,7 @@
     this.$get = function () {
       return function createXhr() {
         return new window.XMLHttpRequest();
-      };
+    };
     };
   }
 
@@ -11660,8 +11660,8 @@
             // parsed on the client-side regardless.
             if (responseType !== 'json') {
               throw e;
-            }
           }
+        }
         }
 
         xhr.send(isUndefined(post) ? null : post);
@@ -11725,7 +11725,7 @@
       addEventListenerFn(script, "error", callback);
       rawDocument.body.appendChild(script);
       return callback;
-    }
+  }
   }
 
   var $interpolateMinErr = angular.$interpolateMinErr = minErr('$interpolate');
@@ -12001,7 +12001,7 @@
               concat.push(unescapeText(text.substring(index)));
             }
             break;
-          }
+        }
         }
 
         // Concatenating expressions makes it hard to reason about whether some combination of
@@ -12067,8 +12067,8 @@
             return allOrNothing && !isDefined(value) ? value : stringify(value);
           } catch (err) {
             $exceptionHandler($interpolateMinErr.interr(text, err));
-          }
         }
+      }
       }
 
 
@@ -12362,7 +12362,7 @@
     // make sure path starts with '/';
     if (locationObj.$$path && locationObj.$$path.charAt(0) != '/') {
       locationObj.$$path = '/' + locationObj.$$path;
-    }
+  }
   }
 
 
@@ -12376,7 +12376,7 @@
   function beginsWith(begin, whole) {
     if (whole.indexOf(begin) === 0) {
       return whole.substr(begin.length);
-    }
+  }
   }
 
 
@@ -12518,13 +12518,13 @@
         // Otherwise we ignore what is left
         if (this.$$html5) {
           withoutHashUrl = withoutBaseUrl;
-        } else {
+      } else {
           withoutHashUrl = '';
           if (isUndefined(withoutBaseUrl)) {
             appBase = url;
             this.replace();
-          }
         }
+      }
       }
 
       parseAppUrl(withoutHashUrl, this);
@@ -12545,10 +12545,10 @@
        * do not include drive names for routing.
        */
       function removeWindowsDriveName(path, url, base) {
-        /*
-         Matches paths for file protocol on windows,
-         such as /C:/foo/bar, and captures only /foo/bar.
-         */
+      /*
+       Matches paths for file protocol on windows,
+       such as /C:/foo/bar, and captures only /foo/bar.
+       */
         var windowsFilePathExp = /^\/[A-Z]:(\/.*)/;
 
         var firstPathSegmentMatch;
@@ -12561,7 +12561,7 @@
         // The input URL intentionally contains a first path segment that ends with a colon.
         if (windowsFilePathExp.exec(url)) {
           return path;
-        }
+      }
 
         firstPathSegmentMatch = windowsFilePathExp.exec(path);
         return firstPathSegmentMatch ? firstPathSegmentMatch[1] : path;
@@ -13288,7 +13288,7 @@
                     oldState === $location.$$state ? null : $location.$$state);
                 }
                 afterLocationChange(oldUrl, oldState);
-              }
+          }
             });
           }
 
@@ -13435,7 +13435,7 @@
               : arg.stack;
           } else if (arg.sourceURL) {
             arg = arg.message + '\n' + arg.sourceURL + ':' + arg.line;
-          }
+        }
         }
         return arg;
       }
@@ -13559,7 +13559,7 @@
         throw $parseMinErr('isecobj',
           'Referencing Object in Angular expressions is disallowed! Expression: {0}',
           fullExpression);
-      }
+    }
     }
     return obj;
   }
@@ -13578,8 +13578,8 @@
         throw $parseMinErr('isecff',
           'Referencing call, apply or bind in Angular expressions is disallowed! Expression: {0}',
           fullExpression);
-      }
     }
+  }
   }
 
   function ensureSafeAssignContext(obj, fullExpression) {
@@ -13588,8 +13588,8 @@
         obj === {}.constructor || obj === [].constructor || obj === Function.constructor) {
         throw $parseMinErr('isecaf',
           'Assigning to a constructor is disallowed! Expression: {0}', fullExpression);
-      }
     }
+  }
   }
 
   var OPERATORS = createMap();
@@ -13642,8 +13642,8 @@
             this.index += token.length;
           } else {
             this.throwError('Unexpected next character ', this.index, this.index + 1);
-          }
         }
+      }
       }
       return this.tokens;
     },
@@ -13707,7 +13707,7 @@
             this.throwError('Invalid exponent');
           } else {
             break;
-          }
+        }
         }
         this.index++;
       }
@@ -13770,7 +13770,7 @@
           return;
         } else {
           string += ch;
-        }
+      }
         this.index++;
       }
       this.throwError('Unterminated quote', start);
@@ -13823,7 +13823,7 @@
           body.push(this.expressionStatement());
         if (!this.expect(';')) {
           return {type: AST.Program, body: body};
-        }
+      }
       }
     },
 
@@ -13861,7 +13861,7 @@
         if (this.consume(':')) {
           consequent = this.expression();
           return {type: AST.ConditionalExpression, test: test, alternate: alternate, consequent: consequent};
-        }
+      }
       }
       return test;
     },
@@ -13960,7 +13960,7 @@
           primary = {type: AST.MemberExpression, object: primary, property: this.identifier(), computed: false};
         } else {
           this.throwError('IMPOSSIBLE');
-        }
+      }
       }
       return primary;
     },
@@ -14077,7 +14077,7 @@
         if (t === e1 || t === e2 || t === e3 || t === e4 ||
           (!e1 && !e2 && !e3 && !e4)) {
           return token;
-        }
+      }
       }
       return false;
     },
@@ -14217,7 +14217,7 @@
         ast.constant = false;
         ast.toWatch = [];
         break;
-    }
+  }
   }
 
   function getInputs(body) {
@@ -14240,7 +14240,7 @@
         right: {type: AST.NGValueParameter},
         operator: '='
       };
-    }
+  }
   }
 
   function isLiteral(ast) {
@@ -14656,7 +14656,7 @@
           body.push('else{');
           consequent();
           body.push('}');
-        }
+      }
       }
     },
 
@@ -15105,7 +15105,7 @@
             ensureSafeAssignContext(lhs);
             if (lhs && !(lhs[rhs])) {
               lhs[rhs] = {};
-            }
+          }
           }
           value = lhs[rhs];
           ensureSafeObject(value, expression);
@@ -15124,7 +15124,7 @@
           ensureSafeAssignContext(lhs);
           if (lhs && !(lhs[right])) {
             lhs[right] = {};
-          }
+        }
         }
         var value = lhs != null ? lhs[right] : undefined;
         if (expensiveChecks || isPossiblyDangerousMemberName(right)) {
@@ -15313,7 +15313,7 @@
 
           default:
             return addInterceptor(noop, interceptorFn);
-        }
+      }
       }
 
       function expensiveChecksInterceptor(fn) {
@@ -15336,7 +15336,7 @@
             return fn(scope, locals, assign, inputs);
           } finally {
             runningChecksEnabled = expensiveCheckOldValue;
-          }
+        }
         }
       }
 
@@ -15397,7 +15397,7 @@
             if (changed || (changed = !expressionInputDirtyCheck(newInputValue, oldInputValueOfValues[i]))) {
               oldInputValues[i] = newInputValue;
               oldInputValueOfValues[i] = newInputValue && getValueOf(newInputValue);
-            }
+          }
           }
 
           if (changed) {
@@ -15449,7 +15449,7 @@
             if (!isDefined(val)) allDefined = false;
           });
           return allDefined;
-        }
+      }
       }
 
       function constantWatchDelegate(scope, listener, objectEquality, parsedExpression) {
@@ -15818,8 +15818,8 @@
         } catch (e) {
           deferred.reject(e);
           exceptionHandler(e);
-        }
       }
+    }
     }
 
     function scheduleProcessQueue(state) {
@@ -15904,10 +15904,10 @@
                 result.notify(isFunction(callback) ? callback(progress) : progress);
               } catch (e) {
                 exceptionHandler(e);
-              }
+            }
             }
           });
-        }
+      }
       }
     });
 
@@ -16778,8 +16778,8 @@
                     if (!hasOwnProperty.call(newValue, key)) {
                       oldLength--;
                       delete oldValue[key];
-                    }
-                  }
+                }
+              }
                 }
               }
               return changeDetected;
@@ -16808,9 +16808,9 @@
                   for (var key in newValue) {
                     if (hasOwnProperty.call(newValue, key)) {
                       veryOldValue[key] = newValue[key];
-                    }
-                  }
                 }
+              }
+            }
               }
             }
 
@@ -16933,14 +16933,14 @@
                                 newVal: value,
                                 oldVal: last
                               });
-                            }
+                      }
                           } else if (watch === lastDirtyWatch) {
                             // If the most recently dirty watcher is now clean, short circuit since the remaining watchers
                             // have already been tested.
                             dirty = false;
                             break traverseScopesLoop;
-                          }
-                        }
+                    }
+                  }
                       } catch (e) {
                         $exceptionHandler(e);
                       }
@@ -17577,7 +17577,7 @@
           return 'unsafe:' + normalizedVal;
         }
         return uri;
-      };
+    };
     };
   }
 
@@ -17628,7 +17628,7 @@
     } else {
       throw $sceMinErr('imatcher',
         'Matchers may only be "self", string patterns or RegExp objects');
-    }
+  }
   }
 
 
@@ -17799,7 +17799,7 @@
         } else {
           // definitely a regex.  See adjustMatchers()
           return !!matcher.exec(parsedUrl.href);
-        }
+      }
       }
 
       function isResourceUrlAllowedByPolicy(url) {
@@ -17810,7 +17810,7 @@
           if (matchUrl(resourceUrlWhitelist[i], parsedUrl)) {
             allowed = true;
             break;
-          }
+        }
         }
         if (allowed) {
           // Ensure that no item from the blacklist blocked this url.
@@ -17818,8 +17818,8 @@
             if (matchUrl(resourceUrlBlacklist[i], parsedUrl)) {
               allowed = false;
               break;
-            }
           }
+        }
         }
         return allowed;
       }
@@ -17828,7 +17828,7 @@
         var holderType = function TrustedValueHolderType(trustedValue) {
           this.$$unwrapTrustedValue = function () {
             return trustedValue;
-          };
+        };
         };
         if (Base) {
           holderType.prototype = new Base();
@@ -17911,7 +17911,7 @@
           return maybeTrusted.$$unwrapTrustedValue();
         } else {
           return maybeTrusted;
-        }
+      }
       }
 
       /**
@@ -18686,7 +18686,7 @@
             vendorPrefix = match[0];
             vendorPrefix = vendorPrefix.substr(0, 1).toUpperCase() + vendorPrefix.substr(1);
             break;
-          }
+        }
         }
 
         if (!vendorPrefix) {
@@ -18699,7 +18699,7 @@
         if (android && (!transitions || !animations)) {
           transitions = isString(bodyStyle.webkitTransition);
           animations = isString(bodyStyle.webkitAnimation);
-        }
+      }
       }
 
 
@@ -18837,9 +18837,9 @@
           if (!ignoreRequestError) {
             throw $templateRequestMinErr('tpload', 'Failed to load template: {0} (HTTP status: {1} {2})',
               tpl, resp.status, resp.statusText);
-          }
-          return $q.reject(resp);
         }
+          return $q.reject(resp);
+      }
       }
 
       handleRequestFn.totalPendingRequests = 0;
@@ -18889,8 +18889,8 @@
                   if (bindingName.indexOf(expression) != -1) {
                     matches.push(binding);
                   }
-                }
-              });
+            }
+          });
             }
           });
           return matches;
@@ -19218,7 +19218,7 @@
         return decodeURIComponent(str);
       } catch (e) {
         return str;
-      }
+    }
     }
 
     return function () {
@@ -19240,9 +19240,9 @@
             // follow are for less specific paths.
             if (isUndefined(lastCookies[name])) {
               lastCookies[name] = safeDecodeURIComponent(cookie.substring(index + 1));
-            }
           }
         }
+      }
       }
       return lastCookies;
     };
@@ -19382,7 +19382,7 @@
         return filters;
       } else {
         return $provide.factory(name + suffix, factory);
-      }
+    }
     }
 
     this.register = register;
@@ -19552,7 +19552,7 @@
           return array;
         } else {
           throw minErr('filter')('notarray', 'Expected array but received: {0}', array);
-        }
+      }
       }
 
       var expressionType = getTypeForFilter(expression);
@@ -19665,7 +19665,7 @@
         return false;
       default:
         return comparator(actual, expected);
-    }
+  }
   }
 
 // Used for easily differentiating between `null` and actual `object`
@@ -19865,7 +19865,7 @@
       // Convert string to array of digits without leading/trailing zeros.
       for (j = 0; i <= zeros; i++, j++) {
         digits[j] = +numStr.charAt(i);
-      }
+    }
     }
 
     // If the number overflows the maximum allowed digits then use an exponent.
@@ -20016,7 +20016,7 @@
 
       if (exponent) {
         formattedText += 'e+' + exponent;
-      }
+    }
     }
     if (number < 0 && !isZero) {
       return pattern.negPre + formattedText + pattern.negSuf;
@@ -20033,7 +20033,7 @@
       } else {
         num = -num;
         neg = '-';
-      }
+    }
     }
     num = '' + num;
     while (num.length < digits) num = ZERO_CHAR + num;
@@ -20303,7 +20303,7 @@
         } else {
           parts.push(format);
           format = null;
-        }
+      }
       }
 
       var dateTimezoneOffset = date.getTimezoneOffset();
@@ -20504,7 +20504,7 @@
           return input.slice(limit, input.length);
         } else {
           return input.slice(Math.max(0, begin + limit), begin);
-        }
+      }
       }
     };
   }
@@ -20754,7 +20754,7 @@
         for (var index = 0, length = predicates.length; index < length; ++index) {
           result = compare(v1.predicateValues[index], v2.predicateValues[index]) * predicates[index].descending;
           if (result) break;
-        }
+      }
         return result;
       }
     };
@@ -20878,7 +20878,7 @@
             }
           });
         };
-      }
+    }
     }
   });
 
@@ -21239,7 +21239,7 @@
         restrict: 'A',
         priority: 100,
         link: linkFn
-      };
+    };
     };
   });
 
@@ -21256,14 +21256,14 @@
             if (match) {
               attr.$set("ngPattern", new RegExp(match[1], match[2]));
               return;
-            }
+          }
           }
 
           scope.$watch(attr[ngAttr], function ngAttrAliasWatchAction(value) {
             attr.$set(ngAttr, value);
           });
         }
-      };
+    };
     };
   });
 
@@ -21301,7 +21301,7 @@
             if (msie && propName) element.prop(propName, attr[name]);
           });
         }
-      };
+    };
     };
   });
 
@@ -23032,7 +23032,7 @@
       // if user modifies input value using context menu in IE, we need "paste" and "cut" events to catch it
       if ($sniffer.hasEvent('paste')) {
         element.on('paste cut', deferListener);
-      }
+    }
     }
 
     // if user paste into input using mouse on older browser
@@ -23143,7 +23143,7 @@
             }
           });
           return new Date(map.yyyy, map.MM - 1, map.dd, map.HH, map.mm, map.ss || 0, map.sss * 1000 || 0);
-        }
+      }
       }
 
       return NaN;
@@ -23186,7 +23186,7 @@
         } else {
           previousDate = null;
           return '';
-        }
+      }
       });
 
       if (isDefined(attr.min) || attr.ngMin) {
@@ -23230,7 +23230,7 @@
         var validity = element.prop(VALIDITY_STATE_PROPERTY) || {};
         return validity.badInput || validity.typeMismatch ? undefined : value;
       });
-    }
+  }
   }
 
   function numberInputType(scope, element, attr, ctrl, $sniffer, $browser) {
@@ -23284,7 +23284,7 @@
         // TODO(matsko): implement validateLater to reduce number of validations
         ctrl.$validate();
       });
-    }
+  }
   }
 
   function urlInputType(scope, element, attr, ctrl, $sniffer, $browser) {
@@ -23642,9 +23642,9 @@
               attr.$set('value', value);
             });
           };
-        }
       }
-    };
+      }
+  };
   };
 
   /**
@@ -25931,7 +25931,7 @@
           return !value || !value.length;
         };
       }
-    };
+  };
   };
 
   /* global VALID_CLASS: true,
@@ -27248,8 +27248,9 @@
           this.$options.updateOnDefault = true;
         }
       }]
-    };
   };
+  };
+
 
 
 // helper methods
@@ -27281,7 +27282,7 @@
         } else {
           set(ctrl.$error, validationErrorKey, controller);
           unset(ctrl.$$success, validationErrorKey, controller);
-        }
+      }
       }
       if (ctrl.$pending) {
         cachedToggleClass(PENDING_CLASS, true);
@@ -27336,7 +27337,7 @@
       } else if (!switchValue && classCache[className]) {
         $animate.removeClass($element, className);
         classCache[className] = false;
-      }
+    }
     }
 
     function toggleValidationCss(validationErrorKey, isValid) {
@@ -27344,7 +27345,7 @@
 
       cachedToggleClass(VALID_CLASS + validationErrorKey, isValid === true);
       cachedToggleClass(INVALID_CLASS + validationErrorKey, isValid === false);
-    }
+  }
   }
 
   function isObjectEmpty(obj) {
@@ -27352,8 +27353,8 @@
       for (var prop in obj) {
         if (obj.hasOwnProperty(prop)) {
           return false;
-        }
       }
+    }
     }
     return true;
   }
@@ -27716,8 +27717,8 @@
           for (var itemKey in optionValues) {
             if (optionValues.hasOwnProperty(itemKey) && itemKey.charAt(0) !== '$') {
               optionValuesKeys.push(itemKey);
-            }
           }
+        }
         }
         return optionValuesKeys;
       }
@@ -27752,7 +27753,7 @@
             if (match[4]) {
               var disableWhen = disableWhenFn(scope, locals);
               watchedArray.push(disableWhen);
-            }
+          }
           }
           return watchedArray;
         }),
@@ -28392,14 +28393,14 @@
               updateElementText();
             } else {
               watchRemover = scope.$watch(whenExpFn, updateElementText);
-            }
+          }
             lastCount = count;
           }
         });
 
         function updateElementText(newText) {
           element.text(newText || '');
-        }
+      }
       }
     };
   }];
@@ -28858,8 +28859,8 @@
               for (var itemKey in collection) {
                 if (hasOwnProperty.call(collection, itemKey) && itemKey.charAt(0) !== '$') {
                   collectionKeys.push(itemKey);
-                }
               }
+            }
             }
 
             collectionLength = collectionKeys.length;
@@ -28888,7 +28889,7 @@
                 // new never before seen block
                 nextBlockOrder[index] = {id: trackById, scope: undefined, clone: undefined};
                 nextBlockMap[trackById] = true;
-              }
+            }
             }
 
             // remove leftover items
@@ -28901,7 +28902,7 @@
                 // so that we can ignore it later
                 for (index = 0, length = elementsToRemove.length; index < length; index++) {
                   elementsToRemove[index][NG_REMOVED] = true;
-                }
+              }
               }
               block.scope.$destroy();
             }
@@ -28946,7 +28947,7 @@
                   nextBlockMap[block.id] = block;
                   updateScope(block.scope, index, valueIdentifier, value, keyIdentifier, key, collectionLength);
                 });
-              }
+            }
             }
             lastBlockMap = nextBlockMap;
           });
@@ -29126,7 +29127,7 @@
           // Read: https://github.com/angular/angular.js/issues/9103#issuecomment-58335845
           $animate[value ? 'removeClass' : 'addClass'](element, NG_HIDE_CLASS, {
             tempClasses: NG_HIDE_IN_PROGRESS_CLASS
-          });
+        });
         });
       }
     };
@@ -29288,7 +29289,7 @@
           // remove a temporary class for the show/hide animation
           $animate[value ? 'addClass' : 'removeClass'](element, NG_HIDE_CLASS, {
             tempClasses: NG_HIDE_IN_PROGRESS_CLASS
-          });
+        });
         });
       }
     };
@@ -29528,7 +29529,7 @@
 
                 selectedElements.push(block);
                 $animate.enter(caseElement, anchor.parent(), anchor);
-              });
+            });
             });
           }
         });
@@ -29731,7 +29732,7 @@
         if (clone.length) {
           $element.empty();
           $element.append(clone);
-        }
+      }
       }
 
       if (!$transclude) {
@@ -29792,7 +29793,7 @@
             text = element[0].text;
 
           $templateCache.put(templateUrl, text);
-        }
+      }
       }
     };
   }];
@@ -29805,7 +29806,7 @@
     // automatically select the new element
     if (optionElement[0].hasAttribute('selected')) {
       optionElement[0].selected = true;
-    }
+  }
   }
 
   /**
@@ -30261,7 +30262,7 @@
           var interpolateTextFn = $interpolate(element.text(), true);
           if (!interpolateTextFn) {
             attr.$set('value', element.text());
-          }
+        }
         }
 
         return function (scope, element, attr) {
@@ -30359,7 +30360,7 @@
           ctrl.$validate();
         });
       }
-    };
+  };
   };
 
   /**
@@ -30465,7 +30466,7 @@
           return ctrl.$isEmpty(viewValue) || isUndefined(regexp) || regexp.test(viewValue);
         };
       }
-    };
+  };
   };
 
   /**
@@ -30551,7 +30552,7 @@
           return (maxlength < 0) || ctrl.$isEmpty(viewValue) || (viewValue.length <= maxlength);
         };
       }
-    };
+  };
   };
 
   /**

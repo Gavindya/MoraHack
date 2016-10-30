@@ -1,18 +1,15 @@
-<ion-view view-title="My Vehicles">
+<ion-view view-title="Home">
   <ion-content>
-
-    <div>
-      <div class="col col-100">
-        <div class="col col-offset-20" ng-if="!showVehicles">
-          <h3>{{message}}</h3>
-        </div>
+    <ion-list>
+      <ion-item ng-repeat="(index, vehicle) in vehicles">
+        <a class="item  item-thumbnail-left item-button-right" href="#/app/vehicle/{{index}}">
+          <img src="img/car.png">
+          <h2 style="font-weight: 800;font-size: 20px">{{vehicle.lisencePlate}}</h2>
+        </a>
+      </ion-item>
+    </ion-list>
         <div ng-if="showVehicles">
           <ol>
-            <li ng-repeat="(index, vehicle) in vehicles">
-              <a href="#/app/vehicle/{{index}}" class="button button-block button-insurance ">
-                {{vehicle.lisencePlate}}
-              </a>
-            </li>
             <!--
             <a href="#/app/vehicle" class="button button-block button-insurance ">
               {{vehicles[1].lisencePlate}}

@@ -127,7 +127,7 @@
     var index = arr.indexOf(val);
     if (val >= 0) {
       arr.splice(index, 1);
-    }
+  }
   }
 
   function stripCommentsFromElement(element) {
@@ -149,12 +149,12 @@
         default:
           return jqLite(extractElementNode(element));
           break;
-      }
+    }
     }
 
     if (element.nodeType === ELEMENT_NODE) {
       return jqLite(element);
-    }
+  }
   }
 
   function extractElementNode(element) {
@@ -163,8 +163,8 @@
       var elm = element[i];
       if (elm.nodeType == ELEMENT_NODE) {
         return elm;
-      }
     }
+  }
   }
 
   function $$addClass($$jqLite, element, className) {
@@ -188,8 +188,8 @@
       if (options.removeClass) {
         $$removeClass($$jqLite, element, options.removeClass);
         options.removeClass = null;
-      }
     }
+  }
   }
 
   function prepareAnimationOptions(options) {
@@ -215,14 +215,14 @@
     if (options.from) {
       element.css(options.from);
       options.from = null;
-    }
+  }
   }
 
   function applyAnimationToStyles(element, options) {
     if (options.to) {
       element.css(options.to);
       options.to = null;
-    }
+  }
   }
 
   function mergeAnimationDetails(element, oldAnimation, newAnimation) {
@@ -342,7 +342,7 @@
     if (classes.length) {
       options.preparationClasses = classes;
       element.addClass(classes);
-    }
+  }
   }
 
   function clearGeneratedClasses(element, options) {

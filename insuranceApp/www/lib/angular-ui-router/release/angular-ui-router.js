@@ -118,7 +118,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
         if (indexOf(inheritList, parentParams[j]) >= 0) continue;
         inheritList.push(parentParams[j]);
         inherited[parentParams[j]] = currentParams[parentParams[j]];
-      }
+    }
     }
     return extend({}, inherited, newParams);
   }
@@ -418,7 +418,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
             result.$$promises = result.$$promises || true; // keep for isResolve()
             delete result.$$inheritedValues;
             resolution.resolve(values);
-          }
+        }
         }
 
         function fail(reason) {
@@ -487,7 +487,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
               }, onfailure);
             } catch (e) {
               onfailure(e);
-            }
+          }
           }
 
           // Publish promise synchronously; invocations further down in the plan may depend on it.
@@ -495,7 +495,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
         }
 
         return result;
-      };
+    };
     };
 
     /**
@@ -840,7 +840,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
           param = addParameter(p.id, p.type, p.cfg, "search");
           last = placeholder.lastIndex;
           // check if ?&
-        }
+      }
       }
     } else {
       this.sourcePath = pattern;
@@ -1040,7 +1040,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
               result += map(encoded, encodeDashes).join("-");
             } else {
               result += encodeURIComponent(encoded);
-            }
+          }
           }
           result += nextSegment;
         } else if (squash === true) {
@@ -1055,7 +1055,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
         encoded = map(encoded, encodeURIComponent).join('&' + name + '=');
         result += (search ? '&' : '?') + (name + '=' + encoded);
         search = true;
-      }
+    }
     }
 
     return result;
@@ -1590,7 +1590,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
         var type = typeQueue.shift();
         if (type.pattern) throw new Error("You cannot override a type's .pattern at runtime.");
         angular.extend($types[type.name], injector.invoke(type.def));
-      }
+    }
     }
 
     // Register default types. Store them in the prototype of $types.
@@ -2200,7 +2200,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
           return [$location.protocol(), '://', $location.host(), port, slash, url].join('');
         }
       };
-    }
+  }
   }
 
   angular.module('ui.router.router').provider('$urlRouter', $UrlRouterProvider);
@@ -2366,7 +2366,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
       var queued = queue[parentName] || [];
       while (queued.length) {
         registerState(queued.shift());
-      }
+    }
     }
 
     function registerState(state) {
@@ -2443,7 +2443,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
       for (var i = 0, l = globSegments.length; i < l; i++) {
         if (globSegments[i] === '*') {
           segments[i] = '*';
-        }
+      }
       }
 
       return segments.join('') === globSegments.join('');
@@ -3160,7 +3160,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
           if (!isDefined(toState)) {
             if (!options.relative) throw new Error("No such state '" + to + "'");
             throw new Error("Could not resolve '" + to + "' from state '" + options.relative + "'");
-          }
+        }
         }
         if (toState[abstractKey]) throw new Error("Cannot transition to abstract state '" + to + "'");
         if (options.inherit) toParams = inheritParams($stateParams, toParams || {}, $state.$current, toState);
@@ -3179,7 +3179,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
             locals = toLocals[keep] = state.locals;
             keep++;
             state = toPath[keep];
-          }
+        }
         }
 
         // If we're going to the same state and all locals are kept, we've got nothing to do.
@@ -3228,7 +3228,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
           if ($rootScope.$broadcast('$stateChangeStart', to.self, toParams, from.self, fromParams).defaultPrevented) {
             $urlRouter.update();
             return TransitionPrevented;
-          }
+        }
         }
 
         // Resolve locals for the remaining states, but don't update any global state just
@@ -3269,7 +3269,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
             entering.locals = toLocals[l];
             if (entering.self.onEnter) {
               $injector.invoke(entering.self.onEnter, entering.self, entering.locals.globals);
-            }
+          }
           }
 
           // Run it again, to catch any transitions in callbacks

@@ -11,27 +11,24 @@ angular.module('insurance.services',['ngResource'])
         return $http.get(baseURL + "Vehicles");
       };
 
-      this.getOneVehiclesResource = function (index) {
-        return $http.get(baseURL + "Vehicles" + index);
-      };
       this.getAccidentsHistory = function () {
         return $http.get(baseURL + "AccidentsHistory");
       };
 
-      this.getOneServiceProviders = function (index) {
-        return $http.get(baseURL + "ServiceProviders" + index);
-      };
-      this.getServiceProviders = function () {
-        return $http.get(baseURL + "ServiceProviders");
-      };
+      // this.getServiceProviders = function () {
+      //   return $http.get(baseURL + "ServiceProviders");
+      // };
+      //
+      // this.getTaxiReservation = function () {
+      //   return $http.get(baseURL + "TaxiReservation");
+      // };
 
-      this.getVehicle = function (index) {
-        return $http.get(baseURL + "TaxiService" + index);
-      };
-
-      this.getTaxiReservation = function () {
-        return $http.get(baseURL + "TaxiReservation");
-      };
+      this.saveNewVehicles = function (data) {
+        $http.post(baseURL + "Vehicles", data);
+      };;;;;;;;;
+      this.saveAccident = function (data) {
+        $http.post(baseURL + "AccidentsHistory", data);
+      };;;;;;;;;
       // ------------------------------------------
 
       //USING NG-RESOURCE INJECTOR-------------
@@ -41,10 +38,10 @@ angular.module('insurance.services',['ngResource'])
     this.getAccidentsHistory = function () {
       return $resource(baseURL+"AccidentsHistory",null ,{'update':{method:'PUT'}});
     };
-
-      this.getServiceProviders = function () {
-        return $resource(baseURL+"ServiceProviders",null ,{'update':{method:'PUT'}});
-      };
+      //
+      // this.getServiceProviders = function () {
+      //   return $resource(baseURL+"ServiceProviders",null ,{'update':{method:'PUT'}});
+      // };
 
       this.getTaxi = function () {
         return $resource(baseURL+"TaxiService",null ,{'update':{method:'PUT'}});

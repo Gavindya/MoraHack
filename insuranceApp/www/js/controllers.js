@@ -28,48 +28,66 @@ angular.module('insurance.controllers', [])
     }, 1000);
   };
 })
-  .controller('RecordAccidentController', function ($scope, $ionicModal, $timeout, $ionicPlatform, $stateParams) {
+  .controller('RecordAccidentController', ['$scope', '$stateParams', '$cordovaCamera', '$rootScope', 'menuFactory',
+    function ($scope, $stateParams, $cordovaCamera, $rootScope, menuFactory) {
 
     // $scope.vehicles = vehicles;
-    $scope.vehicleId = parseInt($stateParams.id, 0);
+      $scope.accident = {
+        number: "",
+        policyNumber: "",
+        date: "",
+        location: ""
+      };
 
-    console.log($stateParams.id);
+    $scope.vehicleId = parseInt($stateParams.id, 0);
+      console.log($stateParams.id);
+
+      $scope.accident.number = $rootScope.vehicles[$scope.vehicleId].lisencePlate;
+      $scope.accident.policyNumber = $rootScope.vehicles[$scope.vehicleId].policyNumber;
 
     $scope.registration = {};
 
     $scope.doRecordVehicle = function() {
       console.log('Doing login', $scope.loginData);
-    };
-      // Simulate a login delay. Remove this and replace with your login
-      // code if using a login system
-      // $timeout(function() {
-      //   $scope.closeAddVehicle();
-      // }, 1000);
+      menuFactory.saveAccident($scope.accident);
 
-      $ionicPlatform.ready(function () {
-        var options = {
-          quality: 50,
-          // destinationType: Camera.DestinationType.DATA_URL,
-          // sourceType: Camera.PictureSourceType.CAMERA,
-          allowEdit: true,
-          // encodingType: Camera.EncodingType.JPEG,
-          targetWidth: 100,
-          targetHeight: 100,
-          // popoverOptions: CameraPopoverOptions,
-          saveToPhotoAlbum: false
-        };
-      });
+    };
+
+      // $ionicPlatform.ready(function () {
+      //   var options = {
+      //     quality: 50,
+      //     // destinationType: Camera.DestinationType.DATA_URL,
+      //     // sourceType: Camera.PictureSourceType.CAMERA,
+      //     allowEdit: true,
+      //     // encodingType: Camera.EncodingType.JPEG,
+      //     targetWidth: 100,
+      //     targetHeight: 100,
+      //     // popoverOptions: CameraPopoverOptions,
+      //     saveToPhotoAlbum: false
+      //   };
+      // });
         $scope.takePicture = function () {
 
-          // $cordovaCamera.getPicture(options).then(function (imageData) {
-          //   $scope.registration.imgSrc = "data:image/jpeg;base64" + imageData;
-          // },function (err) {
-          //   console.log(err);
-          // });
+          var options = {
+            quality: 50,
+            destinationType: Camera.DestinationType.DATA_URL,
+            sourceType: Camera.PictureSourceType.CAMERA,
+            allowEdit: true,
+            encodingType: Camera.EncodingType.JPEG,
+            targetWidth: 100,
+            targetHeight: 100,
+            popoverOptions: CameraPopoverOptions,
+            saveToPhotoAlbum: false
+          };
+          $cordovaCamera.getPicture(options).then(function (imageData) {
+            $scope.registration.imgSrc = "data:image/jpeg;base64" + imageData;
+          }, function (err) {
+            console.log(err);
+          });
           // $scope.registerform.showAddVehicle();
           }
 
-  })
+    }])
   .controller('AddVehicleCtrl',['$scope','menuFactory', function($scope,menuFactory) {
 
     $scope.myVehicle = {number: "", owner: "", policyNumber: "", insuranceCompany: "", policyExpireDate: ""};
@@ -77,35 +95,37 @@ angular.module('insurance.controllers', [])
     $scope.submitVehicle = function () {
       console.log($scope.myVehicle);
 
-      $scope.Vehicles.push($scope.myVehicle);                         //Vehicles is the array saved in vehicles.json. refer line 60
-      menuFactory.getVehiclesResource().update($scope.Vehicles);
+      menuFactory.saveNewVehicles(myVehicle);
 
-      $scope.form.$setPristine();
+      // $scope.Vehicles.push($scope.myVehicle);                         //Vehicles is the array saved in vehicles.json. refer line 60
+      // menuFactory.getVehiclesResource().update($scope.Vehicles);
+
+      // $scope.form.$setPristine();
 
       $scope.myVehicle = {number:"QQ-4546", owner:"", policyNumber:"",insuranceCompany:"",policyExpireDate:""};
     };
   }])
 
-  .controller('HomeController', ['$scope', '$stateParams', 'menuFactory', function ($scope, $stateParams, menuFactory) {
+  .controller('HomeController', ['$scope', '$rootScope', '$stateParams', 'menuFactory', function ($scope, $rootScope, $stateParams, menuFactory) {
     //HTTP USED
     // $scope.Vehicles = {};
 
     $scope.id = $stateParams.id;
 
-    $scope.Vehicles = [];
+    $scope.Vehicles = $rootScope.vehicles;
     $scope.registration = {};
     $scope.showVehicles=false;
     $scope.message="Loading....";
-    menuFactory.getVehiclesResource()
-      .then(
-        function (response) {
-          $scope.Vehicles = response.data;
-          $scope.showVehicles=true;
-        }, function (response) {
-          $scope.message="Error : "+response.status +" "
-                          + response.statusText;
-        }
-      );
+    // menuFactory.getVehiclesResource()
+    //   .then(
+    //     function (response) {
+    //       $scope.Vehicles = response.data;
+    //       $scope.showVehicles=true;
+    //     }, function (response) {
+    //       $scope.message="Error : "+response.status +" "
+    //                       + response.statusText;
+    //     }
+    //   );
 
     //NG-RESOURCE USED
     // $scope.Vehicles = menuFactory.getVehiclesResource().query();
@@ -130,50 +150,22 @@ angular.module('insurance.controllers', [])
 
   }])
 
-  .controller('AccidentsCtrl', ['$scope', '$stateParams', 'menuFactory', function($scope, $stateParams, menuFactory) {
+  .controller('AccidentsCtrl', ['$scope', '$rootScope', '$stateParams', 'menuFactory', function ($scope, $rootScope, $stateParams, menuFactory) {
 
-      $scope.Accidents = [];
-      $scope.showAccidents=false;
+    $scope.Accidents = $rootScope.AccidentsHistory;
+    $scope.showAccidents = true;
       $scope.message="Loading....";
 
-      menuFactory.getAccidentsHistory().query(
-        function (response) {
-          $scope.Accidents=response;
-          $scope.showAccidents=true;
-        },
-        function (response) {
-          $scope.message="Error : "+response.status +" "
-            + response.statusText;
-        }
-      );
-
-      // $scope.baseURL=baseURL;
-      // $scope.vehicle={};
-      // $scope.dish = {};
-      // $scope.showDish = false;
-      // $scope.message="Loading ...";
-      //
-      // $scope.dish = menuFactory.getVehiclesResource().get({id:parseInt($stateParams.id,10)})
-      //   .$promise.then(
-      //     function(response){
-      //       $scope.dish = response;
-      //       $scope.showDish = true;
-      //     },
-      //     function(response) {
-      //       $scope.message = "Error: "+response.status + " " + response.statusText;
-      //     }
-      //   );
-      // $scope.dish = menuFactory.getVehiclesResource().get({id:parseInt($stateParams.id,10)})
-      //   .$promise.then(
-      //     function(response){
-      //       $scope.vehicle = response;
-      //       $scope.showDish = true;
-      //     },
-      //     function(response) {
-      //       $scope.message = "Error: "+response.status + " " + response.statusText;
-      //     }
-      //   );
-
+    // menuFactory.getAccidentsHistory().query(
+    //   function (response) {
+    //     $scope.Accidents=response;
+    //     $scope.showAccidents=true;
+    //   },
+    //   function (response) {
+    //     $scope.message="Error : "+response.status +" "
+    //       + response.statusText;
+    //   }
+    // );
 
     }])
 
@@ -187,23 +179,23 @@ angular.module('insurance.controllers', [])
 
     $scope.servicesTowing = $rootScope.insurance[$scope.insuranceCompany].towing;
 
-    $scope.ServiceProviders = [];
-    $scope.showServiceProviders=false;
-    $scope.message="Loading....";
-
-    //dummy!
-    $scope.serviceA=true;
-
-    menuFactory.getServiceProviders().query(
-      function (response) {
-        $scope.ServiceProviders=response;
-        $scope.showServiceProviders=true;
-      },
-      function (response) {
-        $scope.message="Error : "+response.status +" "
-          + response.statusText;
-      }
-    );
+    // $scope.ServiceProviders = [];
+    // $scope.showServiceProviders=false;
+    // $scope.message="Loading....";
+    //
+    // //dummy!
+    // $scope.serviceA=true;
+    //
+    // menuFactory.getServiceProviders().query(
+    //   function (response) {
+    //     $scope.ServiceProviders=response;
+    //     $scope.showServiceProviders=true;
+    //   },
+    //   function (response) {
+    //     $scope.message="Error : "+response.status +" "
+    //       + response.statusText;
+    //   }
+    // );
 
   }])
   .controller('TaxiCtrl', ['$scope', '$stateParams', '$rootScope', 'menuFactory', function ($scope, $stateParams, $rootScope, menuFactory) {
@@ -216,14 +208,9 @@ angular.module('insurance.controllers', [])
 
     $scope.services = $rootScope.insurance[$scope.insuranceCompany].taxi;
 
-
     $scope.Taxi = [];
     $scope.showTaxi=false;
     $scope.message="Loading....";
-
-    // have to write code to fetch taxi services customer registered with
-    // $scope.uber=true;
-    // $scope.pickme= true;
 
     menuFactory.getTaxi().query(
       function (response) {
@@ -243,12 +230,12 @@ angular.module('insurance.controllers', [])
     console.log($scope.company);
 
     $scope.vehiclesSupported = $rootScope.vehicleTypes[$scope.company].taxiVehicle;
-    // console.log($scope.vehiclesSupported[0]);
 
     $scope.clicked = false;
-    $scope.showtaxiReservation = false;
+    $scope.showtaxiReservation = true;
 
-    $scope.taxiReservation = {};
+    $scope.taxiReservation = $rootScope.TaxiReservation;
+
     $scope.choice = {choiceOp: ""};
     console.log($scope.choice);
 
@@ -262,17 +249,17 @@ angular.module('insurance.controllers', [])
 
     };
 
-    menuFactory.getTaxiReservation()
-      .then(
-        function (response) {
-          $scope.taxiReservation = response.data;
-          $scope.showtaxiReservation = true;
-          // console.log($scope.showtaxiReservation);
-        }, function (response) {
-          $scope.message = "Error : " + response.status + " "
-            + response.statusText;
-        }
-      );
+    // menuFactory.getTaxiReservation()
+    //   .then(
+    //     function (response) {
+    //       $scope.taxiReservation = response.data;
+    //       $scope.showtaxiReservation = true;
+    //       // console.log($scope.showtaxiReservation);
+    //     }, function (response) {
+    //       $scope.message = "Error : " + response.status + " "
+    //         + response.statusText;
+    //     }
+    //   );
   }
   ])
 

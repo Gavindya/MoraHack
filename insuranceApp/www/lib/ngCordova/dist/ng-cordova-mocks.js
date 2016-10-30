@@ -160,7 +160,7 @@
           defer.reject('There was an error encoding the data.');
         } else {
           defer.resolve();
-        }
+      }
 
         return defer.promise;
       }
@@ -401,10 +401,10 @@
         } else {
           if (options) {
             options = options;	// This is just to get by JSHint.
-          }
+        }
 
           defer.resolve(this.imageData);
-        }
+      }
 
         return defer.promise;
       }
@@ -464,7 +464,7 @@
           defer.reject('There was an error capturing the video.');
         } else {
           defer.resolve();
-        }
+      }
 
         return defer.promise;
       }
@@ -518,13 +518,13 @@
             if (this.contacts[i].id === contact.id) {
               existingIndex = i;
               break;
-            }
           }
+        }
 
           if (existingIndex === null) {
             this.contacts.push(contact);
             defer.resolve();
-          } else {
+        } else {
             defer.reject('Contact already exists.');
           }
         }
@@ -544,12 +544,12 @@
             if (this.contacts[i].id === contact.id) {
               toRemove = i;
               break;
-            }
           }
+        }
 
           if (toRemove === null) {
             defer.reject('Unable to find contact.');
-          } else {
+        } else {
             this.contacts.splice(toRemove, 1);
             defer.resolve();
           }
@@ -571,21 +571,21 @@
           } else {
             if (fields === '*') {
               defer.resolve(this.contacts);
-            } else {
+          } else {
               // Implement a very rudimentary search approach for testing purposes.
               // This is NOT exhaustive.
               var results = [];
               for (var i = 0; i < this.contacts.length; i++) {
                 for (var key in this.contacts[i]) {
                   var propertyValue = this.contacts[i][key];
-                }
               }
+            }
 
               // TODO: Search by individual fields
               defer.resolve(results);
-            }
           }
         }
+      }
 
         return defer.promise;
       }
@@ -857,8 +857,8 @@
                 $interval.cancel(watchIntervals[i].interval);
                 removed = i;
                 break;
-              }
             }
+          }
 
             if (removed !== -1) {
               this.watchIntervals.splice(removed, 1);
@@ -866,7 +866,7 @@
           }
         } else {
           defer.reject('Unable to clear watch. No watch ID provided.');
-        }
+      }
 
         return defer.promise;
       }
@@ -956,7 +956,7 @@
           var delay = 100;		// The default based on https://github.com/apache/cordova-plugin-device-orientation
           if (options && options.frequency) {
             delay = options.frequency;
-          }
+        }
 
           self.watchIntervals.push({
             watchID: watchID,
@@ -992,7 +992,7 @@
               $interval.cancel(watchIntervals[i].interval);
               removed = i;
               break;
-            }
+          }
           }
 
           if (removed !== -1) {
@@ -1019,22 +1019,22 @@
           if (this.throwsError) {
             defer.reject('Unable to clear watch.');
           } else {
-            var removed = -1;
+          var removed = -1;
             for (var i = 0; i < this.watchIntervals.length; i++) {
               if (this.watchIntervals[i].watchId === watchId) {
-                $interval.cancel(watchIntervals[i].interval);
-                removed = i;
-                break;
-              }
-            }
-
-            if (removed !== -1) {
-              this.watchIntervals.splice(removed, 1);
+              $interval.cancel(watchIntervals[i].interval);
+              removed = i;
+              break;
             }
           }
+
+          if (removed !== -1) {
+            this.watchIntervals.splice(removed, 1);
+          }
+        }
         } else {
           defer.reject('Unable to clear watch. No watch ID provided.');
-        }
+      }
 
         return defer.promise;
       }
@@ -1184,10 +1184,10 @@
 
           for (var i = 0; i < buttonLabels.length; i++) {
             this.buttonLabels.push(buttonLabels[i]);
-          }
+        }
 
           d.resolve(this.promptResponse);
-        }
+      }
 
         return d.promise;
       },
@@ -1248,7 +1248,7 @@
           return $q.when(this.getAccessTokenShouldSucceedWith);
         } else {
           return $q.reject();
-        }
+      }
       },
 
       getLoginStatus: function () {
@@ -1262,9 +1262,9 @@
       logout: function () {
         if (this.logoutShouldSuceedWith !== null) {
           return $q.when(this.logoutShouldSuceedWith);
-        } else {
+      } else {
           return $q.reject();
-        }
+      }
       }
     };
   }]);
@@ -1345,10 +1345,10 @@
         if (this.shouldMockFiles) {
           var defer = $q.defer();
           if (this.files[directory] && !this.files[directory].isFile) {
-            defer.resolve();
+          defer.resolve();
           } else {
             defer.reject();
-          }
+        }
 
           return defer.promise;
         }
@@ -1375,10 +1375,10 @@
         if (this.shouldMockFiles) {
           var defer = $q.defer();
           if (this.files[filePath] && this.files[filePath].isFile) {
-            defer.resolve();
+          defer.resolve();
           } else {
             defer.reject();
-          }
+        }
 
           return defer.promise;
         }
@@ -1530,7 +1530,7 @@
           });
         } else {
           defer.resolve();
-        }
+      }
 
         return defer.promise;
 
@@ -1690,12 +1690,12 @@
                   defer.reject(error);
                 }
               );
-            } else {
+          } else {
               defer.reject('Geolocation is not supported by this browser.');
-            }
+          }
           } else {
             defer.resolve(this.currentPosition);
-          }
+        }
         }
 
         return defer.promise;
@@ -1740,7 +1740,7 @@
                           defer.reject(error);
                         }
                       );
-                    } else {
+                  } else {
                       defer.reject('Geolocation is not supported by this browser.');
                     }
                   } else {
@@ -1761,7 +1761,7 @@
                     self.currentPosition = result;
                     self.locations.push(result);
                     defer.notify(result);
-                  }
+                }
                 }
               },
               delay
@@ -1777,7 +1777,7 @@
               removed = i;
               break;
             }
-          }
+        }
 
           if (removed !== -1) {
             self.watchIntervals.splice(removed, 1);
@@ -1803,18 +1803,18 @@
           if (this.throwsError) {
             defer.reject('Unable to clear watch.');
           } else {
-            var removed = -1;
+          var removed = -1;
             for (var i = 0; i < this.watchIntervals.length; i++) {
               if (this.watchIntervals[i].watchID === watchID) {
-                $interval.cancel(watchIntervals[i].interval);
-                removed = i;
-                break;
-              }
+              $interval.cancel(watchIntervals[i].interval);
+              removed = i;
+              break;
             }
+          }
 
-            if (removed !== -1) {
-              this.watchIntervals.splice(removed, 1);
-            }
+          if (removed !== -1) {
+            this.watchIntervals.splice(removed, 1);
+          }
           }
         } else {
           defer.reject('Unable to clear watch. No watch ID provided.');
@@ -1891,7 +1891,7 @@
           defer.reject('There was an error getting the preferred language.');
         } else {
           defer.resolve(this.preferredLanguage);
-        }
+      }
 
         return defer.promise;
       },
@@ -2130,7 +2130,7 @@
           defer.resolve();
 
         return defer.promise;
-      };
+    };
     });
 
     return methods;
@@ -2153,16 +2153,16 @@
 
     return {
 
-      /**
-       * @ngdoc property
-       * @name _throwsError
-       * @propertyOf ngCordovaMocks.googlePlayGame
-       *
-       * @description
-       * A flag that signals whether a promise should be rejected or not.
-       * This property should only be used in automated tests.
-       **/
-      _throwsError: throwsError,
+    /**
+     * @ngdoc property
+     * @name _throwsError
+     * @propertyOf ngCordovaMocks.googlePlayGame
+     *
+     * @description
+     * A flag that signals whether a promise should be rejected or not.
+     * This property should only be used in automated tests.
+     **/
+    _throwsError: throwsError,
 
       /**
        * @ngdoc property
@@ -2368,7 +2368,7 @@
 
         if (!this.keychains[serviceName]) {
           this.keychains[serviceName] = {};
-        }
+      }
 
         this.keychains[serviceName][key] = value;
 
@@ -2458,7 +2458,7 @@
           defer.resolve(true);
         } else {
           defer.resolve(false);
-        }
+      }
         return defer.promise;
       },
       isPresent: function (id) {
@@ -2570,7 +2570,7 @@
 
       isOffline: function () {
         return !this.isConnected;
-      }
+    }
     };
   }]);
 
@@ -2586,144 +2586,144 @@
   ngCordovaMocks.factory('$cordovaProgress', [
     '$timeout', function ($timeout) {
 
-      return {
-        show: function (_message) {
-          var message = _message || 'Please wait...';
-          console.info('$cordovaProgress.message', message);
-        },
+    return {
+      show: function (_message) {
+        var message = _message || 'Please wait...';
+        console.info('$cordovaProgress.message', message);
+      },
 
-        showSimple: function (_dim) {
-          var dim = _dim || false;
-          console.info('$cordovaProgress.dim', dim);
-        },
+      showSimple: function (_dim) {
+        var dim = _dim || false;
+        console.info('$cordovaProgress.dim', dim);
+      },
 
-        showSimpleWithLabel: function (_dim, _label) {
-          var dim = _dim || false;
-          var label = _label || 'Loading...';
-          console.group();
-          console.info('$cordovaProgress.dim', dim);
-          console.info('$cordovaProgress.label', label);
-          console.groupEnd();
-        },
+      showSimpleWithLabel: function (_dim, _label) {
+        var dim = _dim || false;
+        var label = _label || 'Loading...';
+        console.group();
+        console.info('$cordovaProgress.dim', dim);
+        console.info('$cordovaProgress.label', label);
+        console.groupEnd();
+      },
 
-        showSimpleWithLabelDetail: function (_dim, _label, _detail) {
-          var dim = _dim || false;
-          var label = _label || 'Loading...';
-          var detail = _detail || 'Please wait';
+      showSimpleWithLabelDetail: function (_dim, _label, _detail) {
+        var dim = _dim || false;
+        var label = _label || 'Loading...';
+        var detail = _detail || 'Please wait';
 
-          console.group();
-          console.info('$cordovaProgress.dim', dim);
-          console.info('$cordovaProgress.label', label);
-          console.info('$cordovaProgress.detail', detail);
-          console.groupEnd();
-        },
+        console.group();
+        console.info('$cordovaProgress.dim', dim);
+        console.info('$cordovaProgress.label', label);
+        console.info('$cordovaProgress.detail', detail);
+        console.groupEnd();
+      },
 
-        showDeterminate: function (_dim, _timeout) {
-          var dim = _dim || false;
-          var timeout = _timeout || 50000;
-          console.group();
-          console.info('$cordovaProgress.dim show', dim);
-          console.info('$cordovaProgress.timeout', timeout);
-          console.groupEnd();
-          $timeout(function () {
-            console.info('$cordovaProgress.dim timeout', dim);
-          }, timeout);
-        },
+      showDeterminate: function (_dim, _timeout) {
+        var dim = _dim || false;
+        var timeout = _timeout || 50000;
+        console.group();
+        console.info('$cordovaProgress.dim show', dim);
+        console.info('$cordovaProgress.timeout', timeout);
+        console.groupEnd();
+        $timeout(function () {
+          console.info('$cordovaProgress.dim timeout', dim);
+        }, timeout);
+      },
 
-        showDeterminateWithLabel: function (_dim, _timeout, _label) {
-          var dim = _dim || false;
-          var timeout = _timeout || 50000;
-          var label = _label || 'Loading...';
+      showDeterminateWithLabel: function (_dim, _timeout, _label) {
+        var dim = _dim || false;
+        var timeout = _timeout || 50000;
+        var label = _label || 'Loading...';
 
-          console.group();
-          console.info('$cordovaProgress.dim', dim);
-          console.info('$cordovaProgress.timeout', timeout);
-          console.info('$cordovaProgress.label', label);
-          console.groupEnd();
-          $timeout(function () {
-            console.info('$cordovaProgress[dim, label] timeout', [dim, label]);
-          }, timeout);
-        },
+        console.group();
+        console.info('$cordovaProgress.dim', dim);
+        console.info('$cordovaProgress.timeout', timeout);
+        console.info('$cordovaProgress.label', label);
+        console.groupEnd();
+        $timeout(function () {
+          console.info('$cordovaProgress[dim, label] timeout', [dim, label]);
+        }, timeout);
+      },
 
-        showAnnular: function (_dim, _timeout) {
-          var dim = _dim || false;
-          var timeout = _timeout || 50000;
+      showAnnular: function (_dim, _timeout) {
+        var dim = _dim || false;
+        var timeout = _timeout || 50000;
 
-          console.group();
-          console.info('$cordovaProgress.dim', dim);
-          console.info('$cordovaProgress.timeout', timeout);
-          console.groupEnd();
-          $timeout(function () {
-            console.info('$cordovaProgress.dim timeout', dim);
-          }, timeout);
-        },
+        console.group();
+        console.info('$cordovaProgress.dim', dim);
+        console.info('$cordovaProgress.timeout', timeout);
+        console.groupEnd();
+        $timeout(function () {
+          console.info('$cordovaProgress.dim timeout', dim);
+        }, timeout);
+      },
 
-        showAnnularWithLabel: function (_dim, _timeout, _label) {
-          var dim = _dim || false;
-          var timeout = _timeout || 50000;
-          var label = _label || 'Loading...';
+      showAnnularWithLabel: function (_dim, _timeout, _label) {
+        var dim = _dim || false;
+        var timeout = _timeout || 50000;
+        var label = _label || 'Loading...';
 
-          console.group();
-          console.info('$cordovaProgress.dim', dim);
-          console.info('$cordovaProgress.timeout', timeout);
-          console.info('$cordovaProgress.label', label);
-          console.groupEnd();
-          $timeout(function () {
-            console.info('$cordovaProgress[dim, label] timeout', [dim, label]);
-          }, timeout);
-        },
+        console.group();
+        console.info('$cordovaProgress.dim', dim);
+        console.info('$cordovaProgress.timeout', timeout);
+        console.info('$cordovaProgress.label', label);
+        console.groupEnd();
+        $timeout(function () {
+          console.info('$cordovaProgress[dim, label] timeout', [dim, label]);
+        }, timeout);
+      },
 
-        showBar: function (_dim, _timeout) {
-          var dim = _dim || false;
-          var timeout = _timeout || 50000;
+      showBar: function (_dim, _timeout) {
+        var dim = _dim || false;
+        var timeout = _timeout || 50000;
 
-          console.group();
-          console.info('$cordovaProgress.dim', dim);
-          console.info('$cordovaProgress.timeout', timeout);
-          console.groupEnd();
-          $timeout(function () {
-            console.info('$cordovaProgress.dim timeout', dim);
-          }, timeout);
-        },
+        console.group();
+        console.info('$cordovaProgress.dim', dim);
+        console.info('$cordovaProgress.timeout', timeout);
+        console.groupEnd();
+        $timeout(function () {
+          console.info('$cordovaProgress.dim timeout', dim);
+        }, timeout);
+      },
 
-        showBarWithLabel: function (_dim, _timeout, _label) {
-          var dim = _dim || false;
-          var timeout = _timeout || 50000;
-          var label = _label || 'Loading...';
-          console.group();
-          console.info('$cordovaProgress.dim', dim);
-          console.info('$cordovaProgress.label', label);
-          console.info('$cordovaProgress.timeout', timeout);
-          console.groupEnd();
-          $timeout(function () {
-            console.info('$cordovaProgress[dim, label] timeout', [dim, label]);
-          }, timeout);
-        },
+      showBarWithLabel: function (_dim, _timeout, _label) {
+        var dim = _dim || false;
+        var timeout = _timeout || 50000;
+        var label = _label || 'Loading...';
+        console.group();
+        console.info('$cordovaProgress.dim', dim);
+        console.info('$cordovaProgress.label', label);
+        console.info('$cordovaProgress.timeout', timeout);
+        console.groupEnd();
+        $timeout(function () {
+          console.info('$cordovaProgress[dim, label] timeout', [dim, label]);
+        }, timeout);
+      },
 
-        showSuccess: function (_dim, _label) {
-          var dim = _dim || false;
-          var label = _label || 'Success';
-          console.group();
-          console.info('$cordovaProgress.dim', dim);
-          console.info('$cordovaProgress.label', label);
-          console.groupEnd();
-        },
+      showSuccess: function (_dim, _label) {
+        var dim = _dim || false;
+        var label = _label || 'Success';
+        console.group();
+        console.info('$cordovaProgress.dim', dim);
+        console.info('$cordovaProgress.label', label);
+        console.groupEnd();
+      },
 
-        showText: function (_dim, _text, _position) {
-          var dim = _dim || false;
-          var text = _text || 'Warning';
-          var position = _position || 'center';
-          console.group();
-          console.info('$cordovaProgress.dim', dim);
-          console.info('$cordovaProgress.text', text);
-          console.info('$cordovaProgress.position', position);
-          console.groupEnd();
-        },
+      showText: function (_dim, _text, _position) {
+        var dim = _dim || false;
+        var text = _text || 'Warning';
+        var position = _position || 'center';
+        console.group();
+        console.info('$cordovaProgress.dim', dim);
+        console.info('$cordovaProgress.text', text);
+        console.info('$cordovaProgress.position', position);
+        console.groupEnd();
+      },
 
-        hide: function () {
-          console.info('$cordovaProgress.hide');
-        }
-      };
+      hide: function () {
+        console.info('$cordovaProgress.hide');
+      }
+    };
     }
   ]);
 
@@ -3038,7 +3038,7 @@
           this.number = number;
 
           defer.resolve();
-        }
+      }
         return defer.promise;
       },
 
@@ -3330,7 +3330,7 @@
           defer.reject('There was an error showing the toast.');
         } else {
           defer.resolve();
-        }
+      }
         return defer.promise;
       },
       showShortCenter: function (message) {
@@ -3339,7 +3339,7 @@
           defer.reject('There was an error showing the toast.');
         } else {
           defer.resolve();
-        }
+      }
         return defer.promise;
       },
       showShortBottom: function (message) {
@@ -3348,7 +3348,7 @@
           defer.reject('There was an error showing the toast.');
         } else {
           defer.resolve();
-        }
+      }
         return defer.promise;
       },
       showLongTop: function (message) {
@@ -3404,7 +3404,7 @@
           defer.resolve();
         }
         return defer.promise;
-      }
+    }
     };
   }]);
 
@@ -3458,7 +3458,7 @@
               },
               time[0]
             );
-          } else {
+        } else {
             this.vibrateTimer = $timeout(
               function () {
                 self.isVibrating = false;
@@ -3466,8 +3466,8 @@
               },
               time
             );
-          }
         }
+      }
       },
 
       /* jshint ignore:start */
@@ -3482,8 +3482,8 @@
           if (this.isVibrating === true) {
             $timeout.cancel(this.vibrateTimer);
             this.isVibrating = false;
-          }
         }
+      }
       }
     };
   }]);

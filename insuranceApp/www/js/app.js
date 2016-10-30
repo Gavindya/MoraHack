@@ -104,6 +104,44 @@ angular.module('insurance', ['ionic', 'insurance.controllers',
       taxiVehicle: ["UbeX", "UberGo"]
     };
 
+    $rootScope.TaxiReservation = {
+      status: {
+        status: "On the way",
+        address: "dhgdja"
+      },
+      driver: {
+        name: "hjadgsgkDRIVER",
+        contactNumber: "54554"
+      },
+      licensePlateNumber: "License",
+      referenceNumber: "shfjhjjjjjjjjjjj",
+      serviceProvider: "Pickme",
+      vehicleType: "tuk"
+    };
+    ;
+    ;
+    ;
+    ;
+    ;
+    ;
+    ;
+    ;
+    $rootScope.AccidentsHistory = [
+
+      {
+        number: "JH-3569",
+        policyNumber: "458712",
+        date: "2016-06-29",
+        location: "Thimbirigayaya"
+      },
+      {
+        number: "KK-3654",
+        policyNumber: "5875dsrkgh857",
+        date: "2016-02-08",
+        location: "Moratuwa"
+      }
+
+    ]
 
   })
 
