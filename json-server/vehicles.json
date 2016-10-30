@@ -4,22 +4,30 @@
   {
   "number": "JH-3569",
   "owner": "aaa",
-  "policyNumber": "458712"
+    "insuranceCompany": "AIA",
+    "policyNumber": "458712",
+    "policyExpireDate": "2020-08-08"
   },
   {
   "number": "kk-8574",
   "owner": "bbb",
-  "policyNumber": "hfkshlhksg"
+    "insuranceCompany": "AsianAllianz",
+    "policyNumber": "458712",
+    "policyExpireDate": "2025-01-08"
   },
   {
     "number": "gh-784792",
-    "owner": "aaa",
-    "policyNumber": "458712"
+    "owner": "ccc",
+    "insuranceCompany": "AIA",
+    "policyNumber": "458712",
+    "policyExpireDate": "2018-10-08"
   },
   {
     "number": "op-8592",
-    "owner": "aaa",
-    "policyNumber": "458712"
+    "owner": "ddd",
+    "insuranceCompany": "AsianAllianz",
+    "policyNumber": "458712",
+    "policyExpireDate": "2028-02-28"
   }
   ],
   "AccidentsHistory":[
@@ -27,62 +35,82 @@
     {
       "number": "JH-3569",
       "policyNumber": "458712",
-      "date": "aaa25418",
-      "location": "jhdgjhfdhgdgjfjfgjh"
+      "date": "2016-06-29",
+      "location": "Thimbirigayaya"
     },
     {
       "number": "kk-8574",
       "policyNumber": "hfkshlhksg",
-      "date": "okj74851",
-      "location": "jhdguuuuuuu"
+      "date": "2016-01-09",
+      "location": "Katubedda"
     },
     {
       "number": "gh-784792",
       "policyNumber": "458712",
-      "date": "aaa2222222222",
-      "location": "jhdgvvvvvvvvv"
+      "date": "2015-08-25",
+      "location": "Rathmalana"
     }
     ],
   "ServiceProviders":[
 
     {
-      "number": "JH-3569",
-      "policyNumber": "458712",
-      "date": "aaa25418",
-      "location": "jhdgjhfdhgdgjfjfgjh"
+      "AIA": [
+        {
+          "name": "TowingAA"
+        },
+        {
+          "name": "TowingCC"
+        }
+      ]
     },
     {
-      "number": "kk-8574",
-      "policyNumber": "hfkshlhksg",
-      "date": "okj74851",
-      "location": "jhdguuuuuuu"
-    },
-    {
-      "number": "gh-784792",
-      "policyNumber": "458712",
-      "date": "aaa2222222222",
-      "location": "jhdgvvvvvvvvv"
+      "AsianAllianz": [
+        {
+          "name": "TowingCC"
+        },
+        {
+          "name": "TowingAA"
+        }
+      ]
+
     }
   ],
   "TaxiService":[
 
     {
-      "number": "JH-3569",
-      "policyNumber": "458712",
-      "date": "aaa25418",
-      "location": "jhdgjhfdhgdgjfjfgjh"
+      "AIA": [
+    {
+      "name": "Uber"
     },
     {
-      "number": "kk-8574",
-      "policyNumber": "hfkshlhksg",
-      "date": "okj74851",
-      "location": "jhdguuuuuuu"
-    },
-    {
-      "number": "gh-784792",
-      "policyNumber": "458712",
-      "date": "aaa2222222222",
-      "location": "jhdgvvvvvvvvv"
+      "name": "PickMe"
     }
-  ]
+      ]
+    },
+    {
+      "AsianAllianz": [
+        {
+          "name": "PickMe"
+        }
+      ]
+
+    }
+  ],
+  "TaxiReservation": {
+    "status": {
+      "status": "On the way",
+      "address": "dhgdja"
+    },
+    "driver": {
+      "name": "hjadgsgkDRIVER",
+      "contactNumber": "54554"
+    },
+    "licensePlateNumber": "License",
+    "referenceNumber": "shfjhjjjjjjjjjjj",
+    "serviceProvider": "Pickme",
+    "vehicleType": "tuk"
+  }
+
+
+
 }

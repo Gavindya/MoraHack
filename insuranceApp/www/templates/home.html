@@ -1,4 +1,4 @@
-<ion-view view-title="Insurance">
+<ion-view view-title="My Vehicles">
   <ion-content>
 
     <div>
@@ -8,8 +8,19 @@
         </div>
         <div ng-if="showVehicles">
           <ol>
-            <li ng-repeat="vehicle in Vehicles">
-              <a href="#/app/vehicle" class="button button-block button-insurance ">
+            <li ng-repeat="(index, vehicle) in vehicles">
+              <a href="#/app/vehicle/{{index}}" class="button button-block button-insurance ">
+                {{vehicle.lisencePlate}}
+              </a>
+            </li>
+            <!--
+            <a href="#/app/vehicle" class="button button-block button-insurance ">
+              {{vehicles[1].lisencePlate}}
+            </a>
+            -->
+            <li ng-repeat="(index, vehicle) in Vehicles">
+              <!--{{vehicle.insuranceCompany}}-->
+              <a href="#/app/vehicle/{{index}}" class="button button-block button-insurance ">
                 {{vehicle.number}}
                </a>
               <!--<ion-item href="#/app/accidentInfo"> {{vehicle.number}}</i></ion-item>-->
@@ -19,14 +30,5 @@
         </div>
       </div>
     </div>
-
-    <!--<div>-->
-      <!--<ul>-->
-      <!--<li ng-repeat="vehicle in Vehicles">-->
-        <!--<a href="#">{{vehicle.vehicleNumber}}</a>-->
-      <!--</li>-->
-      <!--</ul>-->
-    <!--</div>-->
-
   </ion-content>
 </ion-view>

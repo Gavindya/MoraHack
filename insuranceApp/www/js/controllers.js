@@ -28,27 +28,14 @@ angular.module('insurance.controllers', [])
     }, 1000);
   };
 })
-  .controller('RecordAccidentController', function($scope, $ionicModal, $timeout, $ionicPlatform) {
+  .controller('RecordAccidentController', function ($scope, $ionicModal, $timeout, $ionicPlatform, $stateParams) {
+
+    // $scope.vehicles = vehicles;
+    $scope.vehicleId = parseInt($stateParams.id, 0);
+
+    console.log($stateParams.id);
 
     $scope.registration = {};
-
-    // $ionicModal.fromTemplateUrl('templates/recordInfo.html', {
-    //   scope: $scope
-    // }).then(function(modal) {
-    //   $scope.registerform = modal;
-    // });
-
-    // // Triggered in the login modal to close it
-    // $scope.closeAddVehicle = function() {
-    //   $scope.registerform.hide();
-    // };
-
-    // // Open the login modal
-    // $scope.showAddVehicle = function() {
-    //   $scope.registerform.show();
-    // };
-
-    // Perform the login action when the user submits the login form
 
     $scope.doRecordVehicle = function() {
       console.log('Doing login', $scope.loginData);
@@ -71,7 +58,7 @@ angular.module('insurance.controllers', [])
           // popoverOptions: CameraPopoverOptions,
           saveToPhotoAlbum: false
         };
-      })
+      });
         $scope.takePicture = function () {
 
           // $cordovaCamera.getPicture(options).then(function (imageData) {
@@ -85,7 +72,7 @@ angular.module('insurance.controllers', [])
   })
   .controller('AddVehicleCtrl',['$scope','menuFactory', function($scope,menuFactory) {
 
-    $scope.myVehicle = {number:"QQ-4546", owner:"", policyNumber:"",insuranceCompany:"",policyExpireDate:""};
+    $scope.myVehicle = {number: "", owner: "", policyNumber: "", insuranceCompany: "", policyExpireDate: ""};
 
     $scope.submitVehicle = function () {
       console.log($scope.myVehicle);
@@ -99,37 +86,47 @@ angular.module('insurance.controllers', [])
     };
   }])
 
-  .controller('HomeController', ['$scope','menuFactory',function($scope,menuFactory) {
+  .controller('HomeController', ['$scope', '$stateParams', 'menuFactory', function ($scope, $stateParams, menuFactory) {
     //HTTP USED
     // $scope.Vehicles = {};
-    // menuFactory.getVehicles()
-    //   .then(
-    //     function (response) {
-    //       $scope.Vehicles=response.data;
-    //       $scope.showVehicles=true;
-    //     },function (response) {
-    //       $scope.message="Error : "+response.status +" "
-    //                       + response.statusText;
-    //     }
-    //   );
 
-    //NG-RESOURCE USED
-    // $scope.Vehicles = menuFactory.getVehiclesResource().query();
+    $scope.id = $stateParams.id;
+
     $scope.Vehicles = [];
     $scope.registration = {};
     $scope.showVehicles=false;
     $scope.message="Loading....";
-
-    menuFactory.getVehiclesResource().query(
-      function (response) {
-          $scope.Vehicles=response;
+    menuFactory.getVehiclesResource()
+      .then(
+        function (response) {
+          $scope.Vehicles = response.data;
           $scope.showVehicles=true;
-        },
-          function (response) {
+        }, function (response) {
           $scope.message="Error : "+response.status +" "
                           + response.statusText;
         }
       );
+
+    //NG-RESOURCE USED
+    // $scope.Vehicles = menuFactory.getVehiclesResource().query();
+
+    // $scope.Vehicles = [];
+    // $scope.registration = {};
+    // $scope.showVehicles=false;
+    // $scope.message="Loading....";
+
+    // var vehicleChose = menuFactory.getVehiclesResource().get(parseInt($stateParams.id,3))
+    // $scope.vehicle=vehicleChose;
+    // menuFactory.getVehiclesResource().query(
+    //   function (response) {
+    //       $scope.Vehicles=response;
+    //       $scope.showVehicles=true;
+    //     },
+    //       function (response) {
+    //       $scope.message="Error : "+response.status +" "
+    //                       + response.statusText;
+    //     }
+    //   );
 
   }])
 
@@ -180,7 +177,15 @@ angular.module('insurance.controllers', [])
 
     }])
 
-  .controller('ServiceProvidersCtrl', ['$scope','menuFactory',function($scope,menuFactory) {
+  .controller('ServiceProvidersCtrl', ['$scope', '$stateParams', '$rootScope', 'menuFactory', function ($scope, $stateParams, $rootScope, menuFactory) {
+
+    $scope.id = $stateParams.id;
+
+    $scope.vehicleId = parseInt($stateParams.id, 0);
+
+    $scope.insuranceCompany = $rootScope.vehicles[$scope.vehicleId].insurance.company;
+
+    $scope.servicesTowing = $rootScope.insurance[$scope.insuranceCompany].towing;
 
     $scope.ServiceProviders = [];
     $scope.showServiceProviders=false;
@@ -201,15 +206,24 @@ angular.module('insurance.controllers', [])
     );
 
   }])
-  .controller('TaxiCtrl', ['$scope','menuFactory',function($scope,menuFactory) {
+  .controller('TaxiCtrl', ['$scope', '$stateParams', '$rootScope', 'menuFactory', function ($scope, $stateParams, $rootScope, menuFactory) {
+
+    $scope.id = $stateParams.id;
+
+    $scope.vehicleId = parseInt($stateParams.id, 0);
+
+    $scope.insuranceCompany = $rootScope.vehicles[$scope.vehicleId].insurance.company;
+
+    $scope.services = $rootScope.insurance[$scope.insuranceCompany].taxi;
+
 
     $scope.Taxi = [];
     $scope.showTaxi=false;
     $scope.message="Loading....";
 
     // have to write code to fetch taxi services customer registered with
-    $scope.uber=true;
-    $scope.pickme= true;
+    // $scope.uber=true;
+    // $scope.pickme= true;
 
     menuFactory.getTaxi().query(
       function (response) {
@@ -221,8 +235,46 @@ angular.module('insurance.controllers', [])
           + response.statusText;
       }
     );
-
   }])
+
+  .controller('TaxiServiceController', ['$scope', '$stateParams', '$rootScope', 'menuFactory', function ($scope, $stateParams, $rootScope, menuFactory) {
+
+    $scope.clicked = false;
+    $scope.showtaxiReservation = false;
+
+    $scope.taxiReservation = {};
+
+    $scope.messageTaxi = "Loading....";
+
+    $scope.mobileNumber = {contactNumber: ""};
+
+    $scope.sendMobileNumber = function () {
+      console.log($scope.mobileNumber);
+      $scope.clicked = true;
+
+    };
+    // console.log($scope.taxiReservation);
+    console.log('skjhdjshd');
+    //
+    // if($scope.clicked===true) {
+    menuFactory.getTaxiReservation()
+      .then(
+        function (response) {
+          $scope.taxiReservation = response.data;
+          // console.log($scope.taxiReservation);
+          $scope.showtaxiReservation = true;
+          console.log('yyyyyyyyyyyyyyyyyyyyyyyyy');
+          console.log($scope.showtaxiReservation);
+        }, function (response) {
+          $scope.message = "Error : " + response.status + " "
+            + response.statusText;
+        }
+      );
+    // }
+
+  }
+  ])
+
   .controller('MenuController', ['$scope', 'menuFactory', function($scope, menuFactory) {
 
     $scope.tab = 1;

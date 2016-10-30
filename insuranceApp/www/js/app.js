@@ -23,6 +23,80 @@ angular.module('insurance', ['ionic', 'insurance.controllers',
   });
 })
 
+  .run(function ($rootScope) {
+
+    $rootScope.vehicles = [
+      {
+        lisencePlate: "KK-3654",
+        insurance: {
+          company: "AIA",
+          policyId: "HODkl945jg"
+        }
+      },
+      {
+        lisencePlate: "HG-8945",
+        insurance: {
+          company: "AsianAllianz",
+          policyId: "PODgujd7485lk"
+        }
+      }
+      ,
+      {
+        lisencePlate: "KI-1234",
+        insurance: {
+          company: "AIA",
+          policyId: "JH87gfdgh45"
+        }
+      },
+      {
+        lisencePlate: "QT-9878",
+        insurance: {
+          company: "AsianAllianz",
+          policyId: "yugIH8557j"
+        }
+      }
+    ];
+
+    $rootScope.insurance = [];
+
+    $rootScope.insurance['AIA'] = {
+      taxi: ["Uber", "PickMe"],
+      towing: ["AA"]
+    };
+
+    $rootScope.insurance["AsianAllianz"] = {
+      taxi: ["PickMe"],
+      towing: ["AA", "CC"]
+    };
+    $rootScope.taxiServices = [];
+
+    $rootScope.taxiServices['Uber'] = {
+      image: 'img/uber.png',
+      name: 'Uber',
+      description: 'some thing'
+    };
+
+    $rootScope.taxiServices['PickMe'] = {
+      image: 'img/pickme.png',
+      name: 'PickMe',
+      description: 'some other thing'
+    };
+    $rootScope.towingServices = [];
+
+    $rootScope.towingServices['AA'] = {
+      image: 'img/AA.jpg',
+      name: 'AA',
+      description: 'towing AA service'
+    };
+
+    $rootScope.towingServices['CC'] = {
+      image: 'img/CC.png',
+      name: 'CC',
+      description: 'towing CC service'
+    }
+
+  })
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -43,7 +117,7 @@ angular.module('insurance', ['ionic', 'insurance.controllers',
     }
   })
     .state('app.vehicle', {
-      url: '/vehicle',
+      url: '/vehicle/:id',
       views: {
         'menuContent': {
           templateUrl: 'templates/vehicle.html',
@@ -63,7 +137,7 @@ angular.module('insurance', ['ionic', 'insurance.controllers',
     })
 
     .state('app.accidentInfo', {
-      url: '/accidentInfo',
+      url: '/accidentInfo/:id',
       views: {
         'menuContent': {
           templateUrl: 'templates/accidentInfo.html',
@@ -91,10 +165,10 @@ angular.module('insurance', ['ionic', 'insurance.controllers',
     })
 
     .state('app.serviceProviders', {
-      url: '/serviceProviders',
+      url: '/serviceProviders/:id',
       views: {
         'menuContent': {
-          templateUrl: 'templates/serviceProviders.html',
+          templateUrl: 'templates/towingServiceProviders.html',
           controller: 'ServiceProvidersCtrl'
         }
       }
@@ -103,14 +177,14 @@ angular.module('insurance', ['ionic', 'insurance.controllers',
       url: '/towingA',
       views: {
         'menuContent': {
-          templateUrl: 'templates/towingA.html',
-          controller: 'ServiceProvidersCtrl'
+          templateUrl: 'templates/towingA.html'
+          // controller: 'ServiceProvidersCtrl'
         }
       }
     })
 
     .state('app.taxi', {
-      url: '/taxi',
+      url: '/taxi/:id',
       views: {
         'menuContent': {
           templateUrl: 'templates/taxi.html',
@@ -118,25 +192,18 @@ angular.module('insurance', ['ionic', 'insurance.controllers',
         }
       }
     })
-    .state('app.uber', {
-      url: '/uber',
+    .state('app.taxiServiceProvider', {
+      url: '/taxiServiceProvider',
       views: {
         'menuContent': {
-          templateUrl: 'templates/uber.html',
-          controller: 'TaxiCtrl'
+          templateUrl: 'templates/taxiServiceProvider.html',
+          controller: 'TaxiServiceController'
+          // controller: 'TaxiCtrl'
         }
       }
     })
-    .state('app.pickme', {
-      url: '/pickme',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/pickme.html',
-          controller: 'TaxiCtrl'
-        }
-      }
-    })
-  .state('app.single', {
+
+    .state('app.single', {
     url: '/playlists/:playlistId',
     views: {
       'menuContent': {
@@ -148,3 +215,4 @@ angular.module('insurance', ['ionic', 'insurance.controllers',
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');
 });
+

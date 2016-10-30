@@ -1,20 +1,16 @@
 <ion-view view-title="Taxi Services">
   <ion-content>
-    <ion-list >
+    <div style="text-align: center">
+      <h4>Associated Taxi Service providers with {{vehicles[vehicleId].insurance.company}} Insurance</h4>
+    </div>
+    <ion-list>
       <!--ng-repeat="taxi in Taxi"-->
-      <ion-item>
-        <a class="item item-avatar" href="#/app/uber" ng-if="uber">
-            <img src="img/uber.png">
-            <h2>Uber</h2>
-            <p>Uber something</p>
+      <ion-item ng-repeat="(key,service) in services">
+        <a class="item item-avatar" href="#/app/taxiServiceProvider">
+          <img src="{{ taxiServices[service].image }}">
+          <h2>{{ service }}</h2>
+          <p>{{ taxiServices[service].description }}</p>
           </a>
-      </ion-item>
-      <ion-item>
-        <a class="item item-avatar" href="#/app/pickme" ng-if="pickme">
-          <img src="img/pickme.png">
-          <h2>Pick me</h2>
-          <p>Pick me something</p>
-        </a>
       </ion-item>
     </ion-list>
   </ion-content>

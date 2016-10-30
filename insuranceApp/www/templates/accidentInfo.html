@@ -1,6 +1,11 @@
 <ion-view view-title="Record Info">
   <ion-content>
     <form ng-submit="doRecordVehicle()">
+      <div style="text-align: center">
+        {{vehicles[vehicleId].lisencePlate}}<br>
+        {{vehicles[vehicleId].insurance.company}}<br>
+        {{vehicles[vehicleId].insurance.policyId}}
+      </div>
       <div class="list">
         <label class="item item-input item-stacked-label">
           <span class="input-label">Damage </span>
