@@ -99,8 +99,10 @@ angular.module('insurance.controllers', [])
     menuFactory.getVehiclesResource()
       .then(
         function (response) {
-          $scope.Vehicles = response.data;
+
+          $scope.Vehicles = response.data.Vehicles;
           $scope.showVehicles=true;
+
         }, function (response) {
           $scope.message="Error : "+response.status +" "
                           + response.statusText;

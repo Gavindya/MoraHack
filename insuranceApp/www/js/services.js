@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('insurance.services',['ngResource'])
-  .constant("baseURL","http://localhost:3000/") //might have to change to ip of the device
+//.constant("baseURL","http://10.0.2.2:8000/") //might have to change to ip of the device - For emulator
+  .constant("baseURL", "http://localhost:8000/")
   .constant("mobile", "0771234567")
   .service('menuFactory', ['$http','$resource', 'baseURL',
     function($http, $resource, baseURL) {
@@ -10,24 +11,16 @@ angular.module('insurance.services',['ngResource'])
       this.getVehiclesResource = function () {
         return $http.get(baseURL + "Vehicles");
       };
-
-      this.getOneVehiclesResource = function (index) {
-        return $http.get(baseURL + "Vehicles" + index);
-      };
       this.getAccidentsHistory = function () {
         return $http.get(baseURL + "AccidentsHistory");
       };
-
-      this.getOneServiceProviders = function (index) {
-        return $http.get(baseURL + "ServiceProviders" + index);
-      };
-      this.getServiceProviders = function () {
-        return $http.get(baseURL + "ServiceProviders");
-      };
-
-      this.getVehicle = function (index) {
-        return $http.get(baseURL + "TaxiService" + index);
-      };
+      // this.getServiceProviders = function () {
+      //   return $http.get(baseURL + "ServiceProviders");
+      // };
+      //
+      // this.getVehicle = function (index) {
+      //   return $http.get(baseURL + "TaxiService" + index);
+      // };
 
       this.getTaxiReservation = function () {
         return $http.get(baseURL + "TaxiReservation");

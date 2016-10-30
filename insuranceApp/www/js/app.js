@@ -96,6 +96,7 @@ angular.module('insurance', ['ionic', 'insurance.controllers',
     };
 
     $rootScope.vehicleTypes = [];
+
     $rootScope.vehicleTypes['PickMe'] = {
       taxiVehicle: ["Tuk", "Mini", "Car", "Van"]
     };
