@@ -6,7 +6,7 @@
     <ion-list>
       <!--ng-repeat="taxi in Taxi"-->
       <ion-item ng-repeat="(key,service) in services">
-        <a class="item item-avatar" href="#/app/taxiServiceProvider">
+        <a class="item item-avatar" href="#/app/taxiServiceProvider/{{service}}">
           <img src="{{ taxiServices[service].image }}">
           <h2>{{ service }}</h2>
           <p>{{ taxiServices[service].description }}</p>

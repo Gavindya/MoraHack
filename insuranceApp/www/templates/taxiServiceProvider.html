@@ -8,6 +8,10 @@
           <input type="text" placeholder="Contact Number" ng-model="mobileNumber.contactNumber">
         </label>
 
+        <ion-list ng-repeat="vehicleSup in vehiclesSupported">
+          <ion-radio ng-model="choice.choiceOp" ng-value="vehicleSup">{{vehicleSup}}</ion-radio>
+        </ion-list>
+
         <label class="item">
           <button class="button button-block button-insurance" type="submit" ng-disabled="clicked">Submit</button>
         </label>
@@ -26,7 +30,7 @@
         Taxi Service Provider: {{taxiReservation.serviceProvider}}
       </div>
       <div class="item item-text-wrap">
-        Vehicle Type: {{taxiReservation.vehicleType}}
+        Vehicle Type: {{choice.choiceOp}}
       </div>
 
       <div class="item item-divider">

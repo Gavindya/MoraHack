@@ -1,24 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3e37d2c-6b82-4d93-a577-042142a13950" name="Default" comment="stable a bit. cleaned">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/menu.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/playlists.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/recordInfo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/uber.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/pickme.html" afterPath="$PROJECT_DIR$/insuranceApp/www/templates/taxiServiceProvider.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/serviceProviders.html" afterPath="$PROJECT_DIR$/insuranceApp/www/templates/towingServiceProviders.html" />
+    <list default="true" id="b3e37d2c-6b82-4d93-a577-042142a13950" name="Default" comment="taxi service problem">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/js/app.js" afterPath="$PROJECT_DIR$/insuranceApp/www/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/js/controllers.js" afterPath="$PROJECT_DIR$/insuranceApp/www/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/js/services.js" afterPath="$PROJECT_DIR$/insuranceApp/www/js/services.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/accidentInfo.html" afterPath="$PROJECT_DIR$/insuranceApp/www/templates/accidentInfo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/addvehicle.html" afterPath="$PROJECT_DIR$/insuranceApp/www/templates/addvehicle.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/home.html" afterPath="$PROJECT_DIR$/insuranceApp/www/templates/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/myprofile.html" afterPath="$PROJECT_DIR$/insuranceApp/www/templates/myprofile.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/taxi.html" afterPath="$PROJECT_DIR$/insuranceApp/www/templates/taxi.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/vehicle.html" afterPath="$PROJECT_DIR$/insuranceApp/www/templates/vehicle.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/json-server/vehicles.json" afterPath="$PROJECT_DIR$/json-server/vehicles.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/taxiServiceProvider.html" afterPath="$PROJECT_DIR$/insuranceApp/www/templates/taxiServiceProvider.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insuranceApp/www/templates/towingServiceProviders.html" afterPath="$PROJECT_DIR$/insuranceApp/www/templates/towingServiceProviders.html" />
     </list>
     <ignored path="moraHack.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,8 +31,8 @@
       <file leaf-file-name="taxi.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/taxi.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+            <state relative-caret-position="255">
+              <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
@@ -55,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/json-server/vehicles.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="295">
-              <caret line="98" column="1" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="1" />
+              <caret line="103" column="15" selection-start-line="103" selection-start-column="15" selection-end-line="103" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -64,20 +53,30 @@
       <file leaf-file-name="taxiServiceProvider.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/taxiServiceProvider.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+            <state relative-caret-position="408">
+              <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/insuranceApp/www/js/controllers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="249" column="0" selection-start-line="249" selection-start-column="0" selection-end-line="249" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/insuranceApp/www/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="32" column="50" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
+            <state relative-caret-position="51">
+              <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
               <folding>
-                <marker date="1477822163440" expanded="true" signature="2338:2359" ph="{...}" />
+                <marker date="1477831329264" expanded="true" signature="2374:2395" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -86,8 +85,8 @@
       <file leaf-file-name="towingServiceProviders.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/towingServiceProviders.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
@@ -98,10 +97,10 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/insuranceApp/www/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="199" column="23" selection-start-line="199" selection-start-column="23" selection-end-line="199" selection-end-column="44" />
+            <state relative-caret-position="1751">
+              <caret line="103" column="36" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
               <folding>
-                <marker date="1477819478590" expanded="true" signature="345:402" ph="[...]" />
+                <marker date="1477829760243" expanded="true" signature="345:402" ph="[...]" />
               </folding>
             </state>
           </provider>
@@ -117,31 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/home.html">
+      <file leaf-file-name="towingA.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/towingA.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vehicle.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/vehicle.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/insuranceApp/www/js/controllers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="118" column="35" selection-start-line="118" selection-start-column="35" selection-end-line="118" selection-end-column="35" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -175,7 +154,6 @@
         <option value="$PROJECT_DIR$/insuranceApp/www/templates/sideBar.html" />
         <option value="$PROJECT_DIR$/insuranceApp/www/templates/pickme.html" />
         <option value="$PROJECT_DIR$/insuranceApp/www/templates/uber.html" />
-        <option value="$PROJECT_DIR$/insuranceApp/www/templates/towingA.html" />
         <option value="$PROJECT_DIR$/insuranceApp/www/css/style.css" />
         <option value="$PROJECT_DIR$/insuranceApp/platforms/android/res/xml/config.xml" />
         <option value="$PROJECT_DIR$/insuranceApp/config.xml" />
@@ -185,14 +163,16 @@
         <option value="$PROJECT_DIR$/insuranceApp/www/templates/myprofile.html" />
         <option value="$PROJECT_DIR$/insuranceApp/www/templates/accidentInfo.html" />
         <option value="$PROJECT_DIR$/insuranceApp/www/templates/home.html" />
-        <option value="$PROJECT_DIR$/insuranceApp/www/templates/taxi.html" />
         <option value="$PROJECT_DIR$/insuranceApp/www/templates/vehicle.html" />
         <option value="$PROJECT_DIR$/insuranceApp/www/templates/serviceProviders.html" />
-        <option value="$PROJECT_DIR$/insuranceApp/www/js/app.js" />
-        <option value="$PROJECT_DIR$/insuranceApp/www/js/services.js" />
         <option value="$PROJECT_DIR$/json-server/vehicles.json" />
+        <option value="$PROJECT_DIR$/insuranceApp/www/templates/towingA.html" />
+        <option value="$PROJECT_DIR$/insuranceApp/www/templates/taxi.html" />
+        <option value="$PROJECT_DIR$/insuranceApp/www/templates/towingServiceProviders.html" />
+        <option value="$PROJECT_DIR$/insuranceApp/www/js/app.js" />
         <option value="$PROJECT_DIR$/insuranceApp/www/js/controllers.js" />
         <option value="$PROJECT_DIR$/insuranceApp/www/templates/taxiServiceProvider.html" />
+        <option value="$PROJECT_DIR$/insuranceApp/www/js/services.js" />
       </list>
     </option>
   </component>
@@ -448,7 +428,7 @@
       <updated>1477654450698</updated>
       <workItem from="1477654451827" duration="50350000" />
       <workItem from="1477747145767" duration="1377000" />
-      <workItem from="1477752757061" duration="28482000" />
+      <workItem from="1477752757061" duration="33889000" />
     </task>
     <task id="LOCAL-00001" summary="record Info page created">
       <created>1477673895930</created>
@@ -499,11 +479,18 @@
       <option name="project" value="LOCAL" />
       <updated>1477817680760</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="taxi service problem">
+      <created>1477826093562</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1477826093562</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80209000" />
+    <option name="totallyTimeSpent" value="85616000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -538,9 +525,9 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21382637" sideWeight="0.49702382" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1845238" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17782739" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43317232" sideWeight="0.49702382" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.431562" sideWeight="0.49702382" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -565,7 +552,8 @@
     <MESSAGE value="stable a bit" />
     <MESSAGE value="stable a bit. cleaned" />
     <MESSAGE value="interfaces almost done&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="interfaces almost done&#10;" />
+    <MESSAGE value="taxi service problem" />
+    <option name="LAST_COMMIT_MESSAGE" value="taxi service problem" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -801,24 +789,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/towingA.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/accidentInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#form#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/vehicle.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -851,70 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/towingServiceProviders.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/insuranceApp/www/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="199" column="23" selection-start-line="199" selection-start-column="23" selection-end-line="199" selection-end-column="44" />
-          <folding>
-            <marker date="1477819478590" expanded="true" signature="345:402" ph="[...]" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/taxi.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/insuranceApp/www/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="32" column="50" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
-          <folding>
-            <marker date="1477822163440" expanded="true" signature="2338:2359" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/taxiServiceProvider.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/json-server/vehicles.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="98" column="1" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -923,11 +829,93 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json-server/vehicles.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="103" column="15" selection-start-line="103" selection-start-column="15" selection-end-line="103" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/towingA.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/accidentInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#form#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/taxi.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/insuranceApp/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="118" column="35" selection-start-line="118" selection-start-column="35" selection-end-line="118" selection-end-column="35" />
+        <state relative-caret-position="304">
+          <caret line="249" column="0" selection-start-line="249" selection-start-column="0" selection-end-line="249" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/taxiServiceProvider.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insuranceApp/www/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1751">
+          <caret line="103" column="36" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
+          <folding>
+            <marker date="1477829760243" expanded="true" signature="345:402" ph="[...]" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insuranceApp/www/templates/towingServiceProviders.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insuranceApp/www/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+          <folding>
+            <marker date="1477831329264" expanded="true" signature="2374:2395" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

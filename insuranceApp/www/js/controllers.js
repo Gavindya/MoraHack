@@ -239,10 +239,18 @@ angular.module('insurance.controllers', [])
 
   .controller('TaxiServiceController', ['$scope', '$stateParams', '$rootScope', 'menuFactory', function ($scope, $stateParams, $rootScope, menuFactory) {
 
+    $scope.company = $stateParams.service;
+    console.log($scope.company);
+
+    $scope.vehiclesSupported = $rootScope.vehicleTypes[$scope.company].taxiVehicle;
+    // console.log($scope.vehiclesSupported[0]);
+
     $scope.clicked = false;
     $scope.showtaxiReservation = false;
 
     $scope.taxiReservation = {};
+    $scope.choice = {choiceOp: ""};
+    console.log($scope.choice);
 
     $scope.messageTaxi = "Loading....";
 
@@ -253,25 +261,18 @@ angular.module('insurance.controllers', [])
       $scope.clicked = true;
 
     };
-    // console.log($scope.taxiReservation);
-    console.log('skjhdjshd');
-    //
-    // if($scope.clicked===true) {
+
     menuFactory.getTaxiReservation()
       .then(
         function (response) {
           $scope.taxiReservation = response.data;
-          // console.log($scope.taxiReservation);
           $scope.showtaxiReservation = true;
-          console.log('yyyyyyyyyyyyyyyyyyyyyyyyy');
-          console.log($scope.showtaxiReservation);
+          // console.log($scope.showtaxiReservation);
         }, function (response) {
           $scope.message = "Error : " + response.status + " "
             + response.statusText;
         }
       );
-    // }
-
   }
   ])
 

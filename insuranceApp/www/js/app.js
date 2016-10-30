@@ -93,7 +93,17 @@ angular.module('insurance', ['ionic', 'insurance.controllers',
       image: 'img/CC.png',
       name: 'CC',
       description: 'towing CC service'
-    }
+    };
+
+    $rootScope.vehicleTypes = [];
+    $rootScope.vehicleTypes['PickMe'] = {
+      taxiVehicle: ["Tuk", "Mini", "Car", "Van"]
+    };
+
+    $rootScope.vehicleTypes['Uber'] = {
+      taxiVehicle: ["UbeX", "UberGo"]
+    };
+
 
   })
 
@@ -193,7 +203,7 @@ angular.module('insurance', ['ionic', 'insurance.controllers',
       }
     })
     .state('app.taxiServiceProvider', {
-      url: '/taxiServiceProvider',
+      url: '/taxiServiceProvider/:service',
       views: {
         'menuContent': {
           templateUrl: 'templates/taxiServiceProvider.html',
