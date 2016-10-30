@@ -1,12 +1,18 @@
 <ion-view view-title="Service Providers">
   <ion-content>
+    <div style="text-align: center">
+      <h4>Associated Towing Service providers with {{vehicles[vehicleId].insurance.company}} Insurance</h4>
+    </div>
     <ion-list>
-      <!--ng-repeat="serviceprovider in ServiceProviders"-->
-      <ion-item>
-        <a class="item item-thumbnail-left" href="#/app/towingA" ng-if="serviceA">
-          <img src="img/AA.jpg">
-          <h2>Towing</h2>
-          <p>Servic AA</p>
+      <ion-item ng-repeat="(key,serviceTowing) in servicesTowing">
+        <a class="item  item-thumbnail-left item-button-right" href="tel:+94777123456">
+          <img src="{{ towingServices[serviceTowing].image }}">
+          <h2>{{ serviceTowing }}</h2>
+          <p>{{ towingServices[serviceTowing].description }}</p>
+          <button href="tel:+94777123456" class="button button-positive">
+            <i class="icon ion-ios-telephone"></i>
+          </button>
+
         </a>
       </ion-item>
     </ion-list>
